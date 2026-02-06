@@ -1,0 +1,14 @@
+p{
+    font-family: 'Montserrat';
+}
+
+span{
+    font-family: 'Tenor Sans';
+    font-weight: 600;
+}
+
+h3{
+    font-family: 'Tenor Sans';
+    font-weight: bold;
+    text-transform: uppercase;
+}
