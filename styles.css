@@ -1,5 +1,17 @@
+.text_provisional{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.explicació{
+    background: #65a2e7;
+    padding: 10px;
+}
+
 p{
     font-family: 'Montserrat';
+    margin-top: 40px;
 }
 
 span{
@@ -11,4 +23,6 @@ h3{
     font-family: 'Tenor Sans';
     font-weight: bold;
     text-transform: uppercase;
+    margin: 30px;
+    text-align: center;
 }
