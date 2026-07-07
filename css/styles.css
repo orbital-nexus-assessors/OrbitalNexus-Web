@@ -1,72 +1,280 @@
-.container{
-    max-width: 1200px; /* ancho máximo */
-    margin: auto; /* centra la web */
-    padding: 0 20px;  /* espacio lateral en móviles */
+:root {
+    --color-text: #1d1d1d;
+    --color-muted: #666666;
+    --color-border: #dddddd;
+    --color-background: #ffffff;
+    --color-background-soft: #f7f7f7;
+    --color-background-dark: #151515;
+    --color-accent: #2f4f4f;
+    --color-accent-hover: #223a3a;
+    --max-width: 1200px;
+    --space-section: 72px;
 }
 
-
-h1{
-    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
-    font-size: 30px;
-    text-align: start;
-    text-decoration: none;
-    text-transform: uppercase;
+* {
+    box-sizing: border-box;
 }
 
-h2{
-    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
-    font-size: 25px;
-    text-align: start;
-    text-decoration: none;
-    text-transform: uppercase;
+html {
+    scroll-behavior: smooth;
 }
 
-h3{
-    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
-    font-size: 20px;
-    text-align: start;
-    text-decoration: none;
-    text-transform: none;
-}
-
-h4{
-    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
-    font-size: 15px;
-    text-align: start;
-    text-decoration: none;
-    text-transform: none;
-}
-
-body{
-    color: black;
-    font-family: 'Montserrat', 'Courier New', Courier, monospace;
+body {
+    margin: 0;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-family: 'Montserrat', Arial, sans-serif;
     font-size: 15px;
     font-weight: 400;
-    font-style: normal;
-    text-align: start;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
     text-decoration: none;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-transform: none;
-    word-wrap:normal;
+}
+
+ul {
+    margin-top: 0;
+    padding-left: 1.25rem;
+}
+
+.container {
+    width: min(100% - 40px, var(--max-width));
+    margin-inline: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-background);
+}
+
+.header-content {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.site-logo {
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.site-nav ul,
+.footer-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav a {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+    color: var(--color-text);
+}
+
+.hero {
+    padding: 96px 0;
+    background-color: var(--color-background-soft);
+}
+
+.hero-content {
+    max-width: 850px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.hero-content h1,
+.hero-content p {
+    text-align: center;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+}
+
+.section {
+    padding: var(--space-section) 0;
+}
+
+.section-muted {
+    background-color: var(--color-background-soft);
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin-bottom: 32px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.service-card,
+.service-detail-card,
+.team-card,
+.contact-card {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background-color: var(--color-background);
+    padding: 28px;
+}
+
+.service-card h3,
+.service-detail-card h2,
+.team-card h2,
+.contact-card h2 {
+    margin-bottom: 14px;
+}
+
+.service-card ul,
+.service-detail-card ul {
+    margin-bottom: 0;
+}
+
+.section-action {
+    margin-top: 32px;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.section-action-side {
+    margin-top: 0;
+    justify-self: end;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+}
+
+.button-secondary {
+    background-color: var(--color-background-dark);
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.page-header {
+    padding: 72px 0 40px;
+    background-color: var(--color-background-soft);
+}
+
+.page-header p {
+    max-width: 900px;
+}
+
+.service-list,
+.team-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+}
+
+.service-list {
+    grid-template-columns: 1fr;
 }
 
 details {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    margin-top: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-background-soft);
+    overflow: hidden;
 }
 
 summary {
+    padding: 14px 16px;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: 600;
     cursor: pointer;
     list-style: none;
 }
 
-summary::marker {
+summary::marker,
+summary::-webkit-details-marker {
     display: none;
 }
 
@@ -77,4 +285,121 @@ summary::after {
 
 details[open] summary::after {
     content: " ▲";
+}
+
+details ul {
+    padding: 0 24px 20px 40px;
+}
+
+.nested-list {
+    margin-top: 8px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-card-muted {
+    background-color: var(--color-background-soft);
+}
+
+.site-footer {
+    padding: 38px 0;
+    color: #ffffff;
+    background-color: var(--color-background-dark);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.footer-brand {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.site-footer p {
+    margin-bottom: 0;
+    color: #d6d6d6;
+}
+
+.footer-nav a {
+    color: #d6d6d6;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .header-content,
+    .footer-content,
+    .two-column {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header-content {
+        padding: 22px 0;
+    }
+
+    .site-nav ul,
+    .footer-nav ul {
+        flex-wrap: wrap;
+        gap: 14px 20px;
+    }
+
+    .card-grid,
+    .team-grid,
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .section-action-side {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --space-section: 52px;
+    }
+
+    .container {
+        width: min(100% - 28px, var(--max-width));
+    }
+
+    .hero {
+        padding: 68px 0;
+    }
+
+    .page-header {
+        padding: 52px 0 32px;
+    }
+
+    .card-grid,
+    .team-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .service-detail-card,
+    .team-card,
+    .contact-card {
+        padding: 22px;
+    }
 }
