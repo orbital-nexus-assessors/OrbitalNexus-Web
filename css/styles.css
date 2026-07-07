@@ -126,7 +126,11 @@ p {
 
 .hero {
     padding: 96px 0;
-    background-color: var(--color-background-soft);
+    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("../assets/IMG-20240927-WA0031.jpg");
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero-content {
