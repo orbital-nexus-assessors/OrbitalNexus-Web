@@ -1,0 +1,80 @@
+.container{
+    max-width: 1200px; /* ancho máximo */
+    margin: auto; /* centra la web */
+    padding: 0 20px;  /* espacio lateral en móviles */
+}
+
+
+h1{
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
+    font-size: 30px;
+    text-align: start;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+h2{
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
+    font-size: 25px;
+    text-align: start;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+h3{
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
+    font-size: 20px;
+    text-align: start;
+    text-decoration: none;
+    text-transform: none;
+}
+
+h4{
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti';
+    font-size: 15px;
+    text-align: start;
+    text-decoration: none;
+    text-transform: none;
+}
+
+body{
+    color: black;
+    font-family: 'Montserrat', 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: start;
+    text-decoration: none;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+    word-wrap:normal;
+}
+
+details {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+summary {
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    list-style: none;
+}
+
+summary::marker {
+    display: none;
+}
+
+summary::after {
+    content: " ▼";
+    font-size: 0.8rem;
+}
+
+details[open] summary::after {
+    content: " ▲";
+}
