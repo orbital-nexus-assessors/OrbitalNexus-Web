@@ -72,6 +72,7 @@ h2 {
 
 h3 {
     font-size: 1.25rem;
+    font-weight: 500;
 }
 
 h4 {
@@ -80,6 +81,12 @@ h4 {
 
 p {
     margin-top: 0;
+}
+
+.welcome {
+    margin-top: 0;
+    font: montserrat;
+    font-weight: 600;
 }
 
 .site-header {
@@ -127,10 +134,10 @@ p {
 .hero {
     padding: 96px 0;
     background-color: rgba(255, 255, 255, 0.6);
-    background-image: url("../assets/IMG-20240927-WA0031.jpg");
+    background-image: url("../assets/Despatx_03H.jpeg");
     background-blend-mode: lighten;
     background-size: cover;
-    background-position: center;
+    background-position: 50% 45%;
 }
 
 .hero-content {
@@ -214,7 +221,7 @@ p {
     margin-top: 16px;
     padding: 13px 22px;
     border-radius: 999px;
-    background-color: var(--color-accent);
+    background-color: rgba(116, 141, 240, 0.942);
     color: #ffffff;
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -226,7 +233,7 @@ p {
 }
 
 .button-secondary {
-    background-color: var(--color-background-dark);
+    background-color: rgb(114, 173, 233);
 }
 
 .text-link {
@@ -237,9 +244,13 @@ p {
     text-underline-offset: 4px;
 }
 
+.text-link:hover {
+    color: rgba(119, 178, 255, 0.942);
+}
+
 .page-header {
     padding: 72px 0 40px;
-    background-color: var(--color-background-soft);
+    background-color: rgba(119, 178, 255, 0.942);
 }
 
 .page-header p {
@@ -313,7 +324,7 @@ details ul {
 .site-footer {
     padding: 38px 0;
     color: #ffffff;
-    background-color: var(--color-background-dark);
+    background-color: rgb(94, 164, 229);
 }
 
 .footer-content {
@@ -331,16 +342,16 @@ details ul {
 
 .site-footer p {
     margin-bottom: 0;
-    color: #d6d6d6;
+    color: #2c2c2c;
 }
 
 .footer-nav a {
-    color: #d6d6d6;
+    color: #2c2c2c;
     transition: color 0.2s ease;
 }
 
 .footer-nav a:hover {
-    color: #ffffff;
+    color: #e8e8e8;
 }
 
 @media (max-width: 900px) {
