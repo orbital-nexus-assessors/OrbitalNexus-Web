@@ -7,6 +7,7 @@
     --color-background-dark: #151515;
     --color-accent: #2f4f4f;
     --color-accent-hover: #223a3a;
+    --color-identity: #318bf1;
     --max-width: 1200px;
     --space-section: 72px;
 }
@@ -67,7 +68,7 @@ h1 {
 
 h2 {
     font-size: clamp(1.6rem, 3vw, 2.4rem);
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 h3 {
@@ -85,8 +86,7 @@ p {
 
 .welcome {
     margin-top: 0;
-    font: montserrat;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .site-header {
@@ -103,11 +103,8 @@ p {
 }
 
 .site-logo {
-    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
-    font-size: 1.45rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
+    width: 150px;
+    height: auto;
 }
 
 .site-nav ul,
@@ -132,6 +129,10 @@ p {
 }
 
 .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 96px 0;
     background-color: rgba(255, 255, 255, 0.6);
     background-image: url("../assets/Despatx_03H.jpeg");
@@ -153,6 +154,39 @@ p {
 
 .hero-content p {
     font-size: 1.05rem;
+}
+
+.welcome-section {
+    background-color: var(--color-background-soft);
+    margin-top: 40px;
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(0, 600px) minmax(0, 600px) minmax(0, 1fr);
+    align-items: stretch;
+}
+
+.welcome-text-wrapper {
+    grid-column: 2 / 3;
+    padding: 72px 48px 72px 0;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-text {
+    max-width: 560px;
+}
+
+.welcome-image {
+    grid-column: 3 / 5;
+    min-height: 420px;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .section {
@@ -221,7 +255,7 @@ p {
     margin-top: 16px;
     padding: 13px 22px;
     border-radius: 999px;
-    background-color: rgba(116, 141, 240, 0.942);
+    background-color: var(--color-identity);
     color: #ffffff;
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -233,7 +267,7 @@ p {
 }
 
 .button-secondary {
-    background-color: rgb(114, 173, 233);
+    background-color: var(--color-identity);
 }
 
 .text-link {
@@ -245,12 +279,12 @@ p {
 }
 
 .text-link:hover {
-    color: rgba(119, 178, 255, 0.942);
+    color: var(--color-identity);
 }
 
 .page-header {
     padding: 72px 0 40px;
-    background-color: rgba(119, 178, 255, 0.942);
+    background-color: var(--color-identity);
 }
 
 .page-header p {
@@ -324,7 +358,7 @@ details ul {
 .site-footer {
     padding: 38px 0;
     color: #ffffff;
-    background-color: rgb(94, 164, 229);
+    background-color: var(--color-identity);
 }
 
 .footer-content {
@@ -383,6 +417,18 @@ details ul {
         grid-template-columns: 1fr;
     }
 
+    .welcome-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-text {
+        padding: var(--space-section) 0 32px;
+    }
+
+    .welcome-image {
+        min-height: 300px;
+    }
+
     .section-action-side {
         justify-self: start;
     }
@@ -403,6 +449,14 @@ details ul {
 
     .page-header {
         padding: 52px 0 32px;
+    }
+
+    .welcome-text {
+        padding: 52px 0 28px;
+    }
+
+    .welcome-image {
+        min-height: 240px;
     }
 
     .card-grid,
