@@ -5,9 +5,9 @@
     --color-background: #ffffff;
     --color-background-soft: #f7f7f7;
     --color-background-dark: #151515;
-    --color-accent: #2f4f4f;
+    --color-accent: #2f4f4f; 
     --color-accent-hover: #223a3a;
-    --color-identity: #318bf1;
+    --color-identity: #4DA6FF;
     --max-width: 1200px;
     --space-section: 72px;
 }
@@ -89,6 +89,10 @@ p {
     font-weight: 400;
 }
 
+span.text-important {
+    font-weight: 500;
+}
+
 .site-header {
     border-bottom: 1px solid var(--color-border);
     background-color: var(--color-background);
@@ -103,6 +107,10 @@ p {
 }
 
 .site-logo {
+    display: inline-block;
+}
+
+.site-logo img {
     width: 150px;
     height: auto;
 }
@@ -123,7 +131,10 @@ p {
     transition: color 0.2s ease;
 }
 
-.site-nav a:hover,
+.site-nav a:hover {
+    color: var(--color-identity);
+}
+
 .site-nav a.active {
     color: var(--color-text);
 }
@@ -188,7 +199,6 @@ p {
     height: 100%;
     object-fit: cover;
 }
-
 .section {
     padding: var(--space-section) 0;
 }
@@ -261,6 +271,10 @@ p {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+.hero-button {
+    margin-top: 50px;
+}
+
 .button:hover {
     background-color: var(--color-accent-hover);
     transform: translateY(-1px);
@@ -283,8 +297,41 @@ p {
 }
 
 .page-header {
-    padding: 72px 0 40px;
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 72px;
+    color: #ffffff;
     background-color: var(--color-identity);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header-nosaltres {
+    background-image: url("../assets/Despatx_06H.jpeg");
+    background-position: left;
+}
+
+.page-header-contact {
+    background-image: url("../assets/Despatx_04H.jpeg");
+    background-position: center;
+}
+
+.page-header-services {
+    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-position: center;
 }
 
 .page-header p {
@@ -355,6 +402,79 @@ details ul {
     background-color: var(--color-background-soft);
 }
 
+
+.contact-hero {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: url("../assets/Despatx_04H.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 0;
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-island {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    max-width: 980px;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.contact-island a {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.contact-island a:hover {
+    color: var(--color-identity);
+}
+
+.contact-island-text {
+    padding: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-island-text h1 {
+    margin-bottom: 28px;
+    color: var(--color-text);
+}
+
+.contact-island-text p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-island-image {
+    min-height: 420px;
+}
+
+.contact-island-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .site-footer {
     padding: 38px 0;
     color: #ffffff;
@@ -363,6 +483,7 @@ details ul {
 
 .footer-content {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 32px;
 }
@@ -377,6 +498,12 @@ details ul {
 .site-footer p {
     margin-bottom: 0;
     color: #2c2c2c;
+}
+
+.footer-logo {
+    display: flex;
+    position: center;
+    margin-top: 16px;
 }
 
 .footer-nav a {
@@ -421,12 +548,28 @@ details ul {
         grid-template-columns: 1fr;
     }
 
-    .welcome-text {
-        padding: var(--space-section) 0 32px;
+    .welcome-text-wrapper,
+    .welcome-image {
+        grid-column: auto;
+    }
+
+    .welcome-text-wrapper {
+        width: min(100% - 40px, var(--max-width));
+        margin-inline: auto;
+        padding: 52px 0;
     }
 
     .welcome-image {
-        min-height: 300px;
+        min-height: 320px;
+    }
+
+    .contact-island {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+    }
+
+    .contact-island-image {
+        min-height: 320px;
     }
 
     .section-action-side {
@@ -451,8 +594,8 @@ details ul {
         padding: 52px 0 32px;
     }
 
-    .welcome-text {
-        padding: 52px 0 28px;
+    .welcome-text-wrapper {
+        padding: 42px 0;
     }
 
     .welcome-image {
@@ -463,6 +606,22 @@ details ul {
     .team-grid,
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-hero {
+        padding: 52px 0;
+    }
+
+    .contact-island {
+        border-radius: 18px;
+    }
+
+    .contact-island-text {
+        padding: 32px 24px;
+    }
+
+    .contact-island-image {
+        min-height: 240px;
     }
 
     .service-card,
