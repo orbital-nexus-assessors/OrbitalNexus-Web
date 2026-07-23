@@ -587,58 +587,176 @@ span.text-important {
 
 
 /* =========================================================
-   12. PÀGINA SERVEIS - DETALL I ACORDIONS
+   12. PÀGINA SERVEIS - ILLA INTERACTIVA
    ---------------------------------------------------------
-   Targetes llargues de serveis.html. Cada article té un id
-   que permet enllaçar-hi directament des de les cards de l'index.
-   scroll-margin-top evita que el salt quedi enganxat al header.
+   Aquesta pàgina deixa de fer servir el page-header clàssic.
+   Ara funciona com la pàgina de contacte: una secció amb
+   imatge de fons i una illa central.
+
+   Funcionament:
+   - .services-hero = fons complet de la pàgina.
+   - .services-island = caixa central gran amb el contingut.
+   - .services-tab = card clicable de cada servei.
+   - .services-tab.is-active = servei seleccionat.
+   - .services-detail-panel = desglos del servei seleccionat.
+
+   El JavaScript de serveis.html llegeix el hash de la URL.
+   Per exemple: serveis.html#assessoria-fiscal
+   i activa automàticament el servei corresponent.
 ========================================================= */
-.service-list,
-.team-grid {
-    display: grid;
-    gap: 24px;
-}
-
-.service-list {
-    grid-template-columns: 1fr;
-}
-
-.service-detail-card {
-    scroll-margin-top: 110px;
-}
-
-details {
-    margin-top: 20px;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background-color: var(--color-background-soft);
+.services-hero {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+
+    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-summary {
-    padding: 14px 16px;
-    font-size: 1rem;
-    font-weight: 600;
+.services-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 0;
+}
+
+.services-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.services-island {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 52px;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.services-island-header {
+    max-width: 860px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.services-island-header h1 {
+    margin-bottom: 18px;
+    color: var(--color-text);
+}
+
+.services-island-header p:last-child {
+    margin-bottom: 0;
+}
+
+.services-eyebrow {
+    margin-bottom: 10px;
+    color: var(--color-identity);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.services-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 34px;
+}
+
+.services-tab {
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100%;
+    color: var(--color-text);
+    font: inherit;
+    text-align: left;
     cursor: pointer;
-    list-style: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
-summary::marker,
-summary::-webkit-details-marker {
+.services-tab h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.services-tab p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.services-tab:hover,
+.services-tab:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--color-identity);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.services-tab:focus-visible {
+    outline: 3px solid rgba(77, 166, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.services-tab.is-active {
+    color: #ffffff;
+    border-color: var(--color-identity);
+    background-color: var(--color-identity);
+    box-shadow: 0 16px 40px rgba(77, 166, 255, 0.28);
+}
+
+.services-tab.is-active h2,
+.services-tab.is-active p {
+    color: #ffffff;
+}
+
+.services-detail-area {
+    min-height: 240px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+.services-detail-panel {
     display: none;
+    max-width: 920px;
+    margin-inline: auto;
 }
 
-summary::after {
-    content: " ▼";
-    font-size: 0.8rem;
+.services-detail-panel.is-active {
+    display: block;
 }
 
-details[open] summary::after {
-    content: " ▲";
+.services-detail-panel h2 {
+    margin-bottom: 18px;
+    color: var(--color-text);
 }
 
-details ul {
-    padding: 0 24px 20px 40px;
+.services-detail-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.services-detail-panel ul {
+    margin-bottom: 0;
+    padding-left: 1.35rem;
+}
+
+.services-detail-panel li + li {
+    margin-top: 8px;
+}
+
+.services-detail-panel--placeholder {
+    text-align: center;
 }
 
 .nested-list {
@@ -968,6 +1086,19 @@ details ul {
         min-height: 320px;
     }
 
+    .services-hero {
+        padding: 68px 0;
+        align-items: flex-start;
+    }
+
+    .services-island {
+        padding: 40px;
+    }
+
+    .services-selector {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .team-profile,
     .team-profile--reverse {
         grid-template-columns: 1fr;
@@ -1056,6 +1187,29 @@ details ul {
 
     .contact-island-image {
         min-height: 240px;
+    }
+
+    .services-hero {
+        padding: 52px 0;
+    }
+
+    .services-island {
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    .services-island-header {
+        margin-bottom: 28px;
+    }
+
+    .services-selector {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+
+    .services-detail-area {
+        padding-top: 26px;
     }
 
     .team-profile {

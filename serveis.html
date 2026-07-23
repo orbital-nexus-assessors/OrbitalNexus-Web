@@ -32,102 +32,117 @@
     </header>
 
     <main>
-        <section class="page-header page-header-services">
-            <div class="container">
-                <h1>Desglos dels serveis:</h1>
-            </div>
-        </section>
+        <section class="services-hero" aria-labelledby="serveis-title">
+            <div class="container services-hero-content">
+                <article class="services-island">
+                    <header class="services-island-header">
+                        <p class="services-eyebrow">Serveis</p>
+                        <h1 id="serveis-title">Desglos dels serveis</h1>
+                        <p>Selecciona un servei per consultar-ne el detall i el conjunt d’actuacions que podem dur a terme.</p>
+                    </header>
 
-        <section class="section">
-            <div class="container service-list">
-                <article class="service-detail-card" id="assessoria-comptable">
-                    <h2>Assessoria Comptable</h2>
-                    <p>Una visió actual de l’empresa permetrà anticipar-se i adoptar la decisió més adient en cada moment.</p>
-                    <details>
-                        <summary>Els nostres serveis</summary>
-                        <ul>
-                            <li>Implementació i desenvolupament del sistema comptable segons les necessitats del client. Comptabilitat financera i analítica.</li>
-                            <li>Assessorament comptable per grans empreses, pimes, micro-empreses i professionals autònoms o emprenedors.</li>
-                            <li>Revisió i actualització de comptabilitats endarrerides.</li>
-                            <li>Revisió i control de la documentació comptable.</li>
-                            <li>Conciliacions bancàries.</li>
-                            <li>Dipòsit de comptes anuals i legalització de llibres oficials.</li>
-                            <li>Informes Pericials.</li>
-                        </ul>
-                    </details>
-                </article>
+                    <div class="services-selector" role="tablist" aria-label="Serveis disponibles">
+                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-comptable" aria-controls="panel-assessoria-comptable" aria-selected="false">
+                            <h2>Assessoria Comptable</h2>
+                            <p>Una visió actual de l’empresa permetrà anticipar-se i adoptar la decisió més adient en cada moment.</p>
+                        </button>
 
-                <article class="service-detail-card" id="assessoria-laboral">
-                    <h2>Assessoria Laboral</h2>
-                    <p>Assessorament en Dret Laboral i de la Seguretat Social, tant de empreses com de particulars.</p>
-                    <details>
-                        <summary>Els nostres serveis:</summary>
-                        <ul>
-                            <li>Gestió de l’autònom.</li>
-                            <li>Gestions a particulars: Estudis de Jubilació, Acomiadaments, Sancions, Prestacions de la Seguretat Social i SEPE (tramitació atur, viudetat...), empleats de la llar...</li>
-                            <li>Gestions a la empresa:
-                                <ul class="nested-list">
-                                    <li>Contractació del personal laboral, contractes d’alta direcció, establiment d’objectius...</li>
-                                    <li>Desplaçaments internacionals.</li>
-                                    <li>Aplicació del conveni col·lectiu, nòmines, assegurances socials, gestió i seguiment de baixes mèdiques i liquidacions.</li>
-                                    <li>Expedients de Regulació d’Ocupació.</li>
-                                    <li>Negociació col·lectiva.</li>
-                                    <li>Acomiadaments i sancions.</li>
-                                    <li>Prestacions de la Seguretat Social.</li>
-                                </ul>
-                            </li>
-                            <li>Assistència a Inspeccions de Treball i Conciliacions Laborals.</li>
-                            <li>Intervenció en Judicis Laborals.</li>
-                            <li>Protocols d’assetjament.</li>
-                            <li>Plans d’acollida.</li>
-                            <li>Plans d’igualtat i LGTBI.</li>
-                            <li>Prevenció de Riscos Laborals.</li>
-                        </ul>
-                    </details>
-                </article>
+                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-laboral" aria-controls="panel-assessoria-laboral" aria-selected="false">
+                            <h2>Assessoria Laboral</h2>
+                            <p>Assessorament en Dret Laboral i de la Seguretat Social, tant de empreses com de particulars.</p>
+                        </button>
 
-                <article class="service-detail-card" id="assessoria-fiscal">
-                    <h2>Assessoria Fiscal</h2>
-                    <p>La clau de l’èxit és una bona planificació fiscal que permeti la pressa de decisions fermes.</p>
-                    <details>
-                        <summary>Els nostres serveis:</summary>
-                        <ul>
-                            <li>Gestió de les obligacions fiscals de particulars i empreses.</li>
-                            <li>Gestió de la fiscalitat Inmobiliaria.</li>
-                            <li>Planificació patrimonial per minimitzar l’impacte fiscal: gestió de patrimoni i planificació d’herències, plusvàlues...</li>
-                            <li>Defensa i procediments fiscals, assistència integral davant la AEAT, recursos i reclamacions, així com en via contenciosa.</li>
-                            <li>Comptabilitat i obligacions mercantils.</li>
-                            <li>Planificació estratègica fiscal: anàlisis de la millor estructura jurídica per portar a terme l’activitat: societats, cooperatives,     fundacions, societat civil privada, comunitats de bens (constitució, modificacions, dissolució... de societats).</li>
-                            <li>Fiscalitat internacional particular i empresarial.</li>
-                        </ul>
-                    </details>
-                </article>
+                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-fiscal" aria-controls="panel-assessoria-fiscal" aria-selected="false">
+                            <h2>Assessoria Fiscal</h2>
+                            <p>La clau de l’èxit és una bona planificació fiscal que permeti la pressa de decisions fermes.</p>
+                        </button>
 
-                <article class="service-detail-card" id="assessoria-juridica">
-                    <h2>Assessoria Jurídica</h2>
-                    <p>La importància d’un assessorament jurídic previ i una defensa lletrada faran que les decisions siguin preses amb seguretat i conseqüentment</p>
-                    <details>
-                        <summary>Els nostres serveis:</summary>
-                        <ul>
-                            <li>Assessorament legal a empreses:
-                                <ul class="nested-list">
-                                    <li>Constitució de SL, SCP, Fundacions, Cooperatives, Comunitats de Bens.</li>
-                                    <li>Redacció de contractes i documents mercantils.</li>
-                                    <li>Modificacions estatutàries: canvis de nom, augments de capital, dissolucions...</li>
-                                    <li>Reestructuracions: fusions, absorcions, compravenda d’empreses.</li>
-                                    <li>Procediments concursals.</li>
-                                    <li>Adequació de la empresa a la normativa de Protecció de Dades.</li>
-                                </ul>
-                            </li>
-                            <li>Assessorament al particular:
-                                <ul class="nested-list">
-                                    <li>Redaccions de contractes i documents civils: lloguers, compravendes, prèstecs...</li>
-                                    <li>Assessorament en successions, donacions, préstecs...</li>
-                                </ul>
-                            </li>
-                            <li>Intervenció lletrada en procediments civils i laborals.</li>
-                        </ul>
-                    </details>
+                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-juridica" aria-controls="panel-assessoria-juridica" aria-selected="false">
+                            <h2>Assessoria Jurídica</h2>
+                            <p>La importància d’un assessorament jurídic previ i una defensa lletrada faran que les decisions siguin preses amb seguretat i conseqüentment.</p>
+                        </button>
+                    </div>
+
+                    <div class="services-detail-area" aria-live="polite">
+                        <section class="services-detail-panel services-detail-panel--placeholder is-active" data-service-panel="placeholder" id="panel-placeholder">
+                            <h2>Selecciona un servei</h2>
+                            <p>Lorem Ipsum</p>
+                        </section>
+
+                        <section class="services-detail-panel" data-service-panel="assessoria-comptable" id="panel-assessoria-comptable" hidden>
+                            <h2>Assessoria Comptable</h2>
+                            <ul>
+                                <li>Implementació i desenvolupament del sistema comptable segons les necessitats del client. Comptabilitat financera i analítica.</li>
+                                <li>Assessorament comptable per grans empreses, pimes, micro-empreses i professionals autònoms o emprenedors.</li>
+                                <li>Revisió i actualització de comptabilitats endarrerides.</li>
+                                <li>Revisió i control de la documentació comptable.</li>
+                                <li>Conciliacions bancàries.</li>
+                                <li>Dipòsit de comptes anuals i legalització de llibres oficials.</li>
+                                <li>Informes Pericials.</li>
+                            </ul>
+                        </section>
+
+                        <section class="services-detail-panel" data-service-panel="assessoria-laboral" id="panel-assessoria-laboral" hidden>
+                            <h2>Assessoria Laboral</h2>
+                            <ul>
+                                <li>Gestió de l’autònom.</li>
+                                <li>Gestions a particulars: Estudis de Jubilació, Acomiadaments, Sancions, Prestacions de la Seguretat Social i SEPE (tramitació atur, viudetat...), empleats de la llar...</li>
+                                <li>Gestions a la empresa:
+                                    <ul class="nested-list">
+                                        <li>Contractació del personal laboral, contractes d’alta direcció, establiment d’objectius...</li>
+                                        <li>Desplaçaments internacionals.</li>
+                                        <li>Aplicació del conveni col·lectiu, nòmines, assegurances socials, gestió i seguiment de baixes mèdiques i liquidacions.</li>
+                                        <li>Expedients de Regulació d’Ocupació.</li>
+                                        <li>Negociació col·lectiva.</li>
+                                        <li>Acomiadaments i sancions.</li>
+                                        <li>Prestacions de la Seguretat Social.</li>
+                                    </ul>
+                                </li>
+                                <li>Assistència a Inspeccions de Treball i Conciliacions Laborals.</li>
+                                <li>Intervenció en Judicis Laborals.</li>
+                                <li>Protocols d’assetjament.</li>
+                                <li>Plans d’acollida.</li>
+                                <li>Plans d’igualtat i LGTBI.</li>
+                                <li>Prevenció de Riscos Laborals.</li>
+                            </ul>
+                        </section>
+
+                        <section class="services-detail-panel" data-service-panel="assessoria-fiscal" id="panel-assessoria-fiscal" hidden>
+                            <h2>Assessoria Fiscal</h2>
+                            <ul>
+                                <li>Gestió de les obligacions fiscals de particulars i empreses.</li>
+                                <li>Gestió de la fiscalitat Inmobiliaria.</li>
+                                <li>Planificació patrimonial per minimitzar l’impacte fiscal: gestió de patrimoni i planificació d’herències, plusvàlues...</li>
+                                <li>Defensa i procediments fiscals, assistència integral davant la AEAT, recursos i reclamacions, així com en via contenciosa.</li>
+                                <li>Comptabilitat i obligacions mercantils.</li>
+                                <li>Planificació estratègica fiscal: anàlisis de la millor estructura jurídica per portar a terme l’activitat: societats, cooperatives, fundacions, societat civil privada, comunitats de bens (constitució, modificacions, dissolució... de societats).</li>
+                                <li>Fiscalitat internacional particular i empresarial.</li>
+                            </ul>
+                        </section>
+
+                        <section class="services-detail-panel" data-service-panel="assessoria-juridica" id="panel-assessoria-juridica" hidden>
+                            <h2>Assessoria Jurídica</h2>
+                            <ul>
+                                <li>Assessorament legal a empreses:
+                                    <ul class="nested-list">
+                                        <li>Constitució de SL, SCP, Fundacions, Cooperatives, Comunitats de Bens.</li>
+                                        <li>Redacció de contractes i documents mercantils.</li>
+                                        <li>Modificacions estatutàries: canvis de nom, augments de capital, dissolucions...</li>
+                                        <li>Reestructuracions: fusions, absorcions, compravenda d’empreses.</li>
+                                        <li>Procediments concursals.</li>
+                                        <li>Adequació de la empresa a la normativa de Protecció de Dades.</li>
+                                    </ul>
+                                </li>
+                                <li>Assessorament al particular:
+                                    <ul class="nested-list">
+                                        <li>Redaccions de contractes i documents civils: lloguers, compravendes, prèstecs...</li>
+                                        <li>Assessorament en successions, donacions, préstecs...</li>
+                                    </ul>
+                                </li>
+                                <li>Intervenció lletrada en procediments civils i laborals.</li>
+                            </ul>
+                        </section>
+                    </div>
                 </article>
             </div>
         </section>
@@ -150,5 +165,62 @@
             </nav>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const validServices = [
+                "assessoria-comptable",
+                "assessoria-laboral",
+                "assessoria-fiscal",
+                "assessoria-juridica"
+            ];
+
+            const tabs = document.querySelectorAll(".services-tab");
+            const panels = document.querySelectorAll(".services-detail-panel");
+            const placeholderPanel = document.querySelector('[data-service-panel="placeholder"]');
+
+            function selectService(service, updateUrl) {
+                const serviceExists = validServices.includes(service);
+
+                tabs.forEach((tab) => {
+                    const isActive = serviceExists && tab.dataset.service === service;
+                    tab.classList.toggle("is-active", isActive);
+                    tab.setAttribute("aria-selected", isActive ? "true" : "false");
+                });
+
+                panels.forEach((panel) => {
+                    const isPlaceholder = panel.dataset.servicePanel === "placeholder";
+                    const isActive = serviceExists
+                        ? panel.dataset.servicePanel === service
+                        : isPlaceholder;
+
+                    panel.classList.toggle("is-active", isActive);
+                    panel.hidden = !isActive;
+                });
+
+                if (updateUrl && serviceExists) {
+                    history.pushState(null, "", "#" + service);
+                }
+            }
+
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    selectService(tab.dataset.service, true);
+                });
+            });
+
+            const initialService = window.location.hash.replace("#", "");
+            selectService(initialService, false);
+
+            window.addEventListener("popstate", () => {
+                selectService(window.location.hash.replace("#", ""), false);
+            });
+
+            window.addEventListener("hashchange", () => {
+                selectService(window.location.hash.replace("#", ""), false);
+            });
+        })();
+    </script>
+
 </body>
 </html>
