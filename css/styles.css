@@ -429,12 +429,36 @@ span.text-important {
     background-color: rgba(255, 255, 255, 0.942);
     background-image: url("../assets/Despatx_03H.jpeg");
     background-blend-mode: lighten;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card--comptable {
     background-image: url("../assets/Admin_Logo.png");
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: -25% 105%;
-    text-decoration: none;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card--laboral {
+    background-image: url("../assets/Admin_Logo.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: -25% 105%;
+}
+
+.service-card--fiscal {
+    background-image: url("../assets/Admin_Logo.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: -25% 105%;
+}
+
+.service-card--juridica {
+    background-image: url("../assets/Admin_Logo.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: -25% 105%;
 }
 
 .service-card-link:hover,
