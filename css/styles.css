@@ -695,6 +695,8 @@ span.text-important {
 .services-tab p {
     margin-bottom: 0;
     font-size: 0.95rem;
+    /* text-align: justify;
+    text-justify: auto; */
 }
 
 .services-tab:hover,
@@ -1024,7 +1026,12 @@ span.text-important {
     color: #e8e8e8;
 }
 
-
+.footer-farewell {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* =========================================================
    16B. FOOTER LEGAL I PÀGINES LEGALS
