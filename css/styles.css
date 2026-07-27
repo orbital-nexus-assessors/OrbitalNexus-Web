@@ -858,6 +858,132 @@ span.text-important {
 }
 
 
+
+
+/* Vista resum de l'equip a nosaltres.html.
+   Cada article funciona com una targeta d'accés al perfil individual. */
+.team-profiles-overview {
+    background-color: var(--color-background);
+}
+
+.team-overview-intro {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.team-overview-intro h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.team-overview-intro p {
+    margin-bottom: 0;
+    font-size: 1.05rem;
+}
+
+.team-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 220px));
+    gap: 24px;
+    align-items:  center;
+}
+
+.team-overview-card {
+    height: 100%;
+}
+
+.team-overview-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 390px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-overview-link:hover,
+.team-overview-link:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-identity);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+}
+
+.team-overview-link:focus-visible {
+    outline: 3px solid rgba(77, 166, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.team-overview-media {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+    background-color: var(--color-background-soft);
+}
+
+.team-overview-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.team-overview-media--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px;
+}
+
+.team-overview-media--placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.team-overview-content {
+    padding: 24px 20px 26px;
+    font-size: 0.875rem;
+}
+
+.team-overview-content h2 {
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+}
+
+.team-overview-role {
+    margin-bottom: 0;
+    color: var(--color-identity);
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.team-profile-detail-page .team-profile:first-child {
+    padding-top: 0;
+}
+
+.team-profile-back {
+    margin-top: 28px;
+}
+
+.team-profile-media--placeholder {
+    padding: 42px;
+    background-color: var(--color-background-soft);
+}
+
+.team-profile-media--placeholder img {
+    object-fit: contain;
+    transform: none;
+}
+
+
 /* =========================================================
    14. PÀGINA NOSALTRES - CROP D'IMATGES DE L'EQUIP
    ---------------------------------------------------------
@@ -1255,6 +1381,14 @@ span.text-important {
         max-width: 100%;
     }
 
+    .team-overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-overview-media {
+        height: 300px;
+    }
+
     .professional-identities {
         margin-top: 44px;
         padding-top: 28px;
@@ -1360,6 +1494,18 @@ span.text-important {
         width: min(100%, 240px);
         height: 300px;
         border-radius: 18px;
+    }
+
+    .team-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-overview-media {
+        height: 320px;
+    }
+
+    .team-overview-content {
+        padding: 22px;
     }
 
     .professional-identities {
