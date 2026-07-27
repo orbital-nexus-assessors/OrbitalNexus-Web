@@ -318,7 +318,7 @@ span.text-important {
 }
 
 .hero-content {
-    max-width: 850px;
+    max-width: 875px;
     margin-inline: auto;
     text-align: center;
 }
@@ -363,6 +363,12 @@ span.text-important {
     max-width: 560px;
     text-align: justify;
     text-justify: inter-word;
+}
+
+.welcome-text h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
 }
 
 .welcome-image {
@@ -412,6 +418,13 @@ span.text-important {
 
 .services-section h2 {
     text-align: center;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.services-section h3{
+    text-align: center;
 }
 
 .card-grid {
@@ -426,7 +439,7 @@ span.text-important {
     flex-direction: column;
     height: 100%;
     color: inherit;
-    background-color: rgba(255, 255, 255, 0.942);
+    background-color: rgba(255, 255, 255, 0.96);
     background-image: url("../assets/Despatx_03H.jpeg");
     background-blend-mode: lighten;
     text-decoration: none;
@@ -434,31 +447,31 @@ span.text-important {
 }
 
 .service-card--comptable {
-    background-image: url("../assets/Admin_Logo.png");
+    background-image: url("../assets/Comptable_Logo.png");
     background-size: 60%;
     background-repeat: no-repeat;
-    background-position: -25% 105%;
+    background-position: 50% 50%;
 }
 
 .service-card--laboral {
     background-image: url("../assets/Admin_Logo.png");
-    background-size: 60%;
+    background-size: 65%;
     background-repeat: no-repeat;
-    background-position: -25% 105%;
+    background-position: 50% 50%;
 }
 
 .service-card--fiscal {
-    background-image: url("../assets/Admin_Logo.png");
-    background-size: 60%;
+    background-image: url("../assets/Consulta_Logo.png");
+    background-size: 90%;
     background-repeat: no-repeat;
-    background-position: -25% 105%;
+    background-position: 50% 50%;
 }
 
 .service-card--juridica {
-    background-image: url("../assets/Admin_Logo.png");
+    background-image: url("../assets/Fiscal_Logo.png");
     background-size: 60%;
     background-repeat: no-repeat;
-    background-position: -25% 105%;
+    background-position: 50% 50%;
 }
 
 .service-card-link:hover,
@@ -474,6 +487,12 @@ span.text-important {
     outline-offset: 4px;
 }
 
+.services-divider {
+    width: min(100%, 720px);
+    height: 1px;
+    margin: 28px auto 30px;
+    background-color: rgba(77, 166, 255, 0.35);
+}
 
 /* =========================================================
    10B. HOME - SOBRE NOSALTRES I IDENTITATS PROFESSIONALS
@@ -483,6 +502,12 @@ span.text-important {
    separa aquest logo dels logos professionals que es poden
    afegir després, com AECE, col·legis professionals, etc.
 ========================================================= */
+.section-nosaltres h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
 .professional-identities {
     margin-top: 56px;
     padding-top: 34px;
@@ -498,6 +523,7 @@ span.text-important {
 .professional-identities-brand {
     width: clamp(180px, 22vw, 260px);
     height: auto;
+    margin-top: 35px;
 }
 
 .professional-identities-divider {
@@ -650,6 +676,7 @@ span.text-important {
 .services-island-header h1 {
     margin-bottom: 18px;
     color: var(--color-text);
+    font-size: 2rem;
 }
 
 .services-island-header p:last-child {
@@ -1023,14 +1050,7 @@ span.text-important {
 }
 
 .footer-nav a:hover {
-    color: #e8e8e8;
-}
-
-.footer-farewell {
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #fbfbfb;
 }
 
 /* =========================================================
@@ -1083,7 +1103,7 @@ span.text-important {
 }
 
 .footer-legal-nav a:hover {
-    color: #e8e8e8;
+    color: #fbfbfb;
 }
 
 .legal-page-section {
