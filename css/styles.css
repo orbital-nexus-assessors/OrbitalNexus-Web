@@ -1231,7 +1231,7 @@ span.text-important {
 .footer-legal-nav a:hover {
     color: #fbfbfb;
 }
-
+/*
 .legal-page-section {
     background-image: url("../assets/Despatx_05H.jpeg");
     background-size: cover;
@@ -1261,6 +1261,40 @@ span.text-important {
     z-index: 1;
     position: relative;
 }
+*/
+.legal-page-section {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.legal-page-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(250, 250, 250, 0.8);
+    z-index: 0;
+}
+
+.legal-page-content {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 52px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 1;
+}
 
 .legal-page-content h2 {
     margin-bottom: 20px;
@@ -1272,14 +1306,43 @@ span.text-important {
     text-justify: inter-word;
 }
 
-.legal-subsection {
+.ownership-subsection,
+.object-subsection,
+.conditions-subsection,
+.property-subsection,
+.links-subsection,
+.responsabilities-subsection,
+.legislation-subsection {
     margin-top: 34px;
+    margin-bottom: 34px;
     padding-top: 28px;
     border-top: 1px solid rgba(77, 166, 255, 0.28);
 }
 
-.legal-subsection h3 {
+.ownership-subsection ul{
+    list-style-type: none;
+}
+
+.links-subsection a,
+.property-subsection a {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.links-subsection a:hover,
+.property-subsection a:hover {
+    color: var(--color-identity);
+}
+
+.ownership-subsection h3,
+.object-subsection h3,
+.conditions-subsection h3,
+.property-subsection h3,
+.links-subsection h3,
+.responsabilities-subsection h3,
+.legislation-subsection h3 {
     margin-bottom: 14px;
+    text-transform: uppercase;
 }
 
 
