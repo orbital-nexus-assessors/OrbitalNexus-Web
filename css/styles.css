@@ -1,4 +1,35 @@
 /* =========================================================
+   00. FONTS LOCALS
+   ---------------------------------------------------------
+   Fonts allotjades dins del mateix projecte per evitar
+   crides externes a Google Fonts.
+========================================================= */
+
+@font-face {
+    font-family: 'Tenor Sans';
+    src: url("../assets/fonts/tenor-sans/TenorSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/montserrat/Montserrat-VariableFont.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/montserrat/Montserrat-Italic-VariableFont.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* =========================================================
    01. VARIABLES GLOBALS
    ---------------------------------------------------------
    Aquí guardem els valors generals del projecte: colors,
@@ -1146,10 +1177,42 @@ span.text-important {
 }
 
 .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 32px;
+    align-items: start;
+}
+
+.footer-brand-block {
+    justify-self: start;
+}
+
+.footer-contact-block {
+    justify-self: center;
+    text-align: center;
+}
+
+.footer-nav {
+    justify-self: end;
+}
+
+.footer-contact-block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-contact-block li + li {
+    margin-top: 6px;
+}
+
+.footer-contact-block a {
+    color: #2c2c2c;
+    transition: color 0.2s ease;
+}
+
+.footer-contact-block a:hover {
+    color: #fbfbfb;
 }
 
 .footer-brand {
@@ -1157,6 +1220,19 @@ span.text-important {
     font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
     font-size: 1.25rem;
     text-transform: uppercase;
+}
+
+.footer-contact {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+}
+
+.footer-navegacio {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 .site-footer p {
@@ -1306,6 +1382,7 @@ span.text-important {
     text-justify: inter-word;
 }
 
+/*AVIS LEGAL*/
 .ownership-subsection,
 .object-subsection,
 .conditions-subsection,
@@ -1319,21 +1396,49 @@ span.text-important {
     border-top: 1px solid rgba(77, 166, 255, 0.28);
 }
 
-.ownership-subsection ul{
+/*POL. PRIVACITAT*/
+.info-subsection,
+.accountable-subsection,
+.legitimization-subsection,
+.data-subsection,
+.goal-subsection,
+.period-subsection,
+.cession-subsection,
+.rights-subsection,
+.ward-subsection,
+.sending-subsection,
+.legislation2-subsection {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+.ownership-subsection ul,
+.accountable-subsection ul{
     list-style-type: none;
 }
 
 .links-subsection a,
-.property-subsection a {
+.property-subsection a,
+.legitimization-subsection a,
+.cession-subsection a,
+.rights-subsection a,
+.sending-subsection a {
     color: var(--color-text);
     font-weight: 500;
 }
 
 .links-subsection a:hover,
-.property-subsection a:hover {
+.property-subsection a:hover,
+.legitimization-subsection a:hover,
+.cession-subsection a:hover,
+.rights-subsection a:hover,
+.sending-subsection a:hover {
     color: var(--color-identity);
 }
 
+/*AVIS LEGAL*/
 .ownership-subsection h3,
 .object-subsection h3,
 .conditions-subsection h3,
@@ -1345,6 +1450,26 @@ span.text-important {
     text-transform: uppercase;
 }
 
+/*POL. PRIVACITAT*/
+.info-subsection h3,
+.accountable-subsection h3,
+.legitimization-subsection h3,
+.data-subsection h3,
+.goal-subsection h3,
+.period-subsection h3,
+.cession-subsection h3,
+.rights-subsection h3,
+.ward-subsection h3,
+.sending-subsection h3,
+.legislation2-subsection h3 {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.bold{
+    font-weight: 600;
+}
+
 
 /* =========================================================
    17. RESPONSIVE - TABLET I PANTALLES MITJANES
@@ -1354,7 +1479,6 @@ span.text-important {
 ========================================================= */
 @media (max-width: 900px) {
     .header-content,
-    .footer-content,
     .two-column {
         align-items: flex-start;
         flex-direction: column;
@@ -1364,8 +1488,7 @@ span.text-important {
         padding: 22px 0;
     }
 
-    .site-nav ul,
-    .footer-nav ul {
+    .site-nav ul {
         flex-wrap: wrap;
         gap: 14px 20px;
     }
@@ -1470,7 +1593,27 @@ span.text-important {
     .section-action-side {
         justify-self: start;
     }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-brand-block,
+    .footer-contact-block,
+    .footer-nav {
+        justify-self: center;
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+    }
+
+    .footer-legal-nav {
+        justify-content: center;
+    }
 }
+
 
 
 /* =========================================================
