@@ -342,7 +342,7 @@ span.text-important {
     justify-content: center;
     padding: 96px 0;
     background-color: rgba(255, 255, 255, 0.6);
-    background-image: url("../assets/Despatx_03H.jpeg");
+    background-image: url("../assets/Despatx_03H.webp");
     background-blend-mode: lighten;
     background-size: cover;
     background-position: 50% 45%;
@@ -428,7 +428,7 @@ span.text-important {
 .services-section {
     position: relative;
     overflow: hidden;
-    background-image: url("../assets/Despatx_05H.jpeg");
+    background-image: url("../assets/Despatx_05H.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -471,7 +471,7 @@ span.text-important {
     height: 100%;
     color: inherit;
     background-color: rgba(255, 255, 255, 0.96);
-    background-image: url("../assets/Despatx_03H.jpeg");
+    background-image: url("../assets/Despatx_03H.webp");
     background-blend-mode: lighten;
     text-decoration: none;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -499,7 +499,7 @@ span.text-important {
 }
 
 .service-card--juridica {
-    background-image: url("../assets/Fiscal_Logo.png");
+    background-image: url("../assets/Fiscal_Logo.webp");
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -622,7 +622,7 @@ span.text-important {
 }
 
 .page-header-nosaltres {
-    background-image: url("../assets/Despatx_06H.jpeg");
+    background-image: url("../assets/Despatx_06H.webp");
     background-position: left;
 }
 
@@ -633,12 +633,12 @@ span.text-important {
 }
 
 .page-header-contact {
-    background-image: url("../assets/Despatx_04H.jpeg");
+    background-image: url("../assets/Despatx_04H.webp");
     background-position: center;
 }
 
 .page-header-services {
-    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-image: url("../assets/Despatx_01H_Inv.webp");
     background-position: center;
 }
 
@@ -669,7 +669,7 @@ span.text-important {
     align-items: center;
     overflow: hidden;
 
-    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-image: url("../assets/Despatx_01H_Inv.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1104,7 +1104,7 @@ span.text-important {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-image: url("../assets/Despatx_04H.jpeg");
+    background-image: url("../assets/Despatx_04H.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1314,7 +1314,7 @@ span.text-important {
 }
 /*
 .legal-page-section {
-    background-image: url("../assets/Despatx_05H.jpeg");
+    background-image: url("../assets/Despatx_05H.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1351,7 +1351,7 @@ span.text-important {
     align-items: center;
     overflow: hidden;
 
-    background-image: url("../assets/Despatx_01H_Inv.jpeg");
+    background-image: url("../assets/Despatx_01H_Inv.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
