@@ -1381,10 +1381,27 @@ span.text-important {
     margin-bottom: 20px;
 }
 
-.legal-page-content p:last-child {
+.legal-page-content p {
     margin-bottom: 0;
     text-align: justify;
     text-justify: inter-word;
+}
+
+.text-underlined {
+    text-decoration: underline;
+}
+
+.important-text {
+    font-weight: 500;
+}
+
+.legal-page-content a {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.legal-page-content a:hover {
+    color: var(--color-identity);
 }
 
 /*AVIS LEGAL*/
@@ -1419,28 +1436,26 @@ span.text-important {
     border-top: 1px solid rgba(77, 166, 255, 0.28);
 }
 
+/*COOKIES*/
+.what-subsection,
+.types-subsection,
+.change-subsection {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
 .ownership-subsection ul,
-.accountable-subsection ul{
+.accountable-subsection ul,
+.change-subsection ul {
     list-style-type: none;
 }
 
-.links-subsection a,
-.property-subsection a,
-.legitimization-subsection a,
-.cession-subsection a,
-.rights-subsection a,
-.sending-subsection a {
-    color: var(--color-text);
-    font-weight: 500;
-}
-
-.links-subsection a:hover,
-.property-subsection a:hover,
-.legitimization-subsection a:hover,
-.cession-subsection a:hover,
-.rights-subsection a:hover,
-.sending-subsection a:hover {
-    color: var(--color-identity);
+.types-subsection ul,
+.change-subsection ul {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /*AVIS LEGAL*/
@@ -1467,6 +1482,14 @@ span.text-important {
 .ward-subsection h3,
 .sending-subsection h3,
 .legislation2-subsection h3 {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+/*COOKIES*/
+.what-subsection h3,
+.types-subsection h3,
+.change-subsection h3 {
     margin-bottom: 14px;
     text-transform: uppercase;
 }
