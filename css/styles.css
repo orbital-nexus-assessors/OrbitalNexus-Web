@@ -897,6 +897,10 @@ span.text-important {
     background-color: var(--color-background);
 }
 
+.team-profiles-overview .container {
+    width: min(100% - 40px, 1400px);
+}
+
 .team-overview-intro {
     max-width: 760px;
     margin: 0 auto 42px;
@@ -916,9 +920,10 @@ span.text-important {
 
 .team-overview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 220px));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
+    justify-content: center;
     gap: 24px;
-    align-items:  center;
+    align-items:  stretch;
 }
 
 .team-overview-card {
