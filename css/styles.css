@@ -86,7 +86,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-background);
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
 }
@@ -106,6 +106,10 @@ a:focus-visible,
 button:focus-visible {
     outline: 3px solid var(--color-identity);
     outline-offset: 4px;
+}
+
+footer a:focus-visible {
+    outline-color: var(--color-background);
 }
 
 ul {
@@ -506,29 +510,29 @@ span.text-important {
 }
 
 .service-card--comptable {
-    background-image: url("../assets/Comptable_Logo.png");
-    background-size: 60%;
+    background-image: url("../assets/contabilidad.png");
+    background-size: 95%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--laboral {
-    background-image: url("../assets/Admin_Logo.png");
-    background-size: 65%;
+    background-image: url("../assets/laboral.png");
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--fiscal {
-    background-image: url("../assets/Consulta_Logo.png");
+    background-image: url("../assets/fiscal.png");
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--juridica {
-    background-image: url("../assets/Fiscal_Logo.webp");
-    background-size: 60%;
+    background-image: url("../assets/juridico.png");
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
@@ -786,8 +790,6 @@ span.text-important {
     display: block;
     margin-bottom: 0;
     font-size: 0.95rem;
-    /* text-align: justify;
-    text-justify: auto; */
 }
 
 .services-tab:hover,
@@ -1370,7 +1372,7 @@ span.text-important {
 }
 
 .legal-page-content {
-    max-width: 900px;
+    max-width: 80ch;
     margin-inline: auto;
     padding: 52px;
     border: 1px solid var(--color-border);
@@ -1378,6 +1380,7 @@ span.text-important {
     background-color: var(--color-background);
     position: relative;
     z-index: 1;
+    text-align: left;
 }
 
 .legal-page-content h1 {
@@ -1387,8 +1390,7 @@ span.text-important {
 
 .legal-page-content p {
     margin-bottom: 0;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
 }
 
 .text-underlined {
@@ -1458,8 +1460,7 @@ span.text-important {
 
 .types-subsection ul,
 .change-subsection ul {
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
 }
 
 /*AVIS LEGAL*/
