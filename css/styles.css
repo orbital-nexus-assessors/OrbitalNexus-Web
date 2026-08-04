@@ -1382,6 +1382,7 @@ span.text-important {
 
 .legal-page-content h1 {
     margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 .legal-page-content p {
@@ -1462,39 +1463,42 @@ span.text-important {
 }
 
 /*AVIS LEGAL*/
-.ownership-subsection h3,
-.object-subsection h3,
-.conditions-subsection h3,
-.property-subsection h3,
-.links-subsection h3,
-.responsabilities-subsection h3,
-.legislation-subsection h3 {
+.ownership-subsection h2,
+.object-subsection h2,
+.conditions-subsection h2,
+.property-subsection h2,
+.links-subsection h2,
+.responsabilities-subsection h2,
+.legislation-subsection h2 {
     margin-bottom: 14px;
     text-transform: uppercase;
+    font-size: 1.15rem;
 }
 
 /*POL. PRIVACITAT*/
-.info-subsection h3,
-.accountable-subsection h3,
-.legitimization-subsection h3,
-.data-subsection h3,
-.goal-subsection h3,
-.period-subsection h3,
-.cession-subsection h3,
-.rights-subsection h3,
-.ward-subsection h3,
-.sending-subsection h3,
-.legislation2-subsection h3 {
+.info-subsection h2,
+.accountable-subsection h2,
+.legitimization-subsection h2,
+.data-subsection h2,
+.goal-subsection h2,
+.period-subsection h2,
+.cession-subsection h2,
+.rights-subsection h2,
+.ward-subsection h2,
+.sending-subsection h2,
+.legislation2-subsection h2 {
     margin-bottom: 14px;
     text-transform: uppercase;
+    font-size: 1.15rem;
 }
 
 /*COOKIES*/
-.what-subsection h3,
-.types-subsection h3,
-.change-subsection h3 {
+.what-subsection h2,
+.types-subsection h2,
+.change-subsection h2 {
     margin-bottom: 14px;
     text-transform: uppercase;
+    font-size: 1.15rem;
 }
 
 .bold{
