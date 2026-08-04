@@ -67,6 +67,20 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
 body {
     margin: 0;
     color: var(--color-text);
@@ -86,6 +100,12 @@ img {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-identity);
+    outline-offset: 4px;
 }
 
 ul {
@@ -361,6 +381,14 @@ span.text-important {
 
 .hero-content p {
     font-size: 1.05rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 0;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 
@@ -745,12 +773,17 @@ span.text-important {
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
-.services-tab h2 {
+.services-tab-title {
+    display: block;
     margin-bottom: 12px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
     font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.2;
 }
 
-.services-tab p {
+.services-tab-description {
+    display: block;
     margin-bottom: 0;
     font-size: 0.95rem;
     /* text-align: justify;
@@ -776,8 +809,8 @@ span.text-important {
     box-shadow: 0 16px 40px rgba(77, 166, 255, 0.28);
 }
 
-.services-tab.is-active h2,
-.services-tab.is-active p {
+.services-tab.is-active .services-tab-title,
+.services-tab.is-active .services-tab-description {
     color: #ffffff;
 }
 
@@ -1247,7 +1280,7 @@ span.text-important {
 
 .footer-logo {
     display: flex;
-    position: center;
+    justify-content: center;
     margin-top: 16px;
 }
 
@@ -1312,37 +1345,7 @@ span.text-important {
 .footer-legal-nav a:hover {
     color: #fbfbfb;
 }
-/*
-.legal-page-section {
-    background-image: url("../assets/Despatx_05H.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
 
-.legal-page-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    z-index: 0;
-}
-
-.legal-page-content {
-    max-width: 900px;
-    margin-inline: auto;
-    padding: 52px;
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    background-color: var(--color-background);
-    z-index: 1;
-    position: relative;
-}
-*/
 .legal-page-section {
     position: relative;
     min-height: calc(100vh - 86px);
@@ -1377,7 +1380,7 @@ span.text-important {
     z-index: 1;
 }
 
-.legal-page-content h2 {
+.legal-page-content h1 {
     margin-bottom: 20px;
 }
 

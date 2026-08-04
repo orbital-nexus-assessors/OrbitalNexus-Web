@@ -17,7 +17,7 @@
             <nav class="site-nav" aria-label="Navegació principal">
                 <ul>
                     <li><a href="index.html">Inici</a></li>
-                    <li><a class="active" href="serveis.html">Serveis</a></li>
+                    <li><a class="active" aria-current="page" href="serveis.html">Serveis</a></li>
                     <li><a href="nosaltres.html">Nosaltres</a></li>
                     <li><a href="contacte.html">Contacte</a></li>
                 </ul>
@@ -36,24 +36,24 @@
                     </header>
 
                     <div class="services-selector" role="tablist" aria-label="Serveis disponibles">
-                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-comptable" aria-controls="panel-assessoria-comptable" aria-selected="false">
-                            <h2>Comptabilitat</h2>
-                            <p>Una visió actual de l’empresa permetrà anticipar-se i adoptar la decisió més adient en cada moment.</p>
+                        <button class="service-detail-card services-tab" id="tab-assessoria-comptable" type="button" role="tab" data-service="assessoria-comptable" aria-controls="panel-assessoria-comptable" aria-selected="false" tabindex="-1">
+                            <span class="services-tab-title">Comptabilitat</span>
+                            <span class="services-tab-description">Una visió actual de l’empresa permetrà anticipar-se i adoptar la decisió més adient en cada moment.</span>
                         </button>
 
-                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-laboral" aria-controls="panel-assessoria-laboral" aria-selected="false">
-                            <h2>Laboral</h2>
-                            <p>Assessorament en Dret Laboral i de la Seguretat Social, tant de empreses com de particulars.</p>
+                        <button class="service-detail-card services-tab" id="tab-assessoria-laboral" type="button" role="tab" data-service="assessoria-laboral" aria-controls="panel-assessoria-laboral" aria-selected="false" tabindex="-1">
+                            <span class="services-tab-title">Laboral</span>
+                            <span class="services-tab-description">Assessorament en Dret Laboral i de la Seguretat Social, tant d’empreses com de particulars.</span>
                         </button>
 
-                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-fiscal" aria-controls="panel-assessoria-fiscal" aria-selected="false">
-                            <h2>Fiscal</h2>
-                            <p>La clau de l’èxit és una bona planificació fiscal que permeti la pressa de decisions fermes.</p>
+                        <button class="service-detail-card services-tab" id="tab-assessoria-fiscal" type="button" role="tab" data-service="assessoria-fiscal" aria-controls="panel-assessoria-fiscal" aria-selected="false" tabindex="-1">
+                            <span class="services-tab-title">Fiscal</span>
+                            <span class="services-tab-description">La clau de l’èxit és una bona planificació fiscal que permeti la presa de decisions fermes.</span>
                         </button>
 
-                        <button class="service-detail-card services-tab" type="button" data-service="assessoria-juridica" aria-controls="panel-assessoria-juridica" aria-selected="false">
-                            <h2>Jurídic</h2>
-                            <p>La importància d’un assessorament jurídic previ i una defensa lletrada faran que les decisions siguin preses amb seguretat i conseqüentment.</p>
+                        <button class="service-detail-card services-tab" id="tab-assessoria-juridica" type="button" role="tab" data-service="assessoria-juridica" aria-controls="panel-assessoria-juridica" aria-selected="false" tabindex="-1">
+                            <span class="services-tab-title">Jurídic</span>
+                            <span class="services-tab-description">La importància d’un assessorament jurídic previ i una defensa lletrada faran que les decisions siguin preses amb seguretat i conseqüentment.</span>
                         </button>
                     </div>
 
@@ -62,7 +62,7 @@
                             <p>Selecciona un servei.</p>
                         </section>
 
-                        <section class="services-detail-panel" data-service-panel="assessoria-comptable" id="panel-assessoria-comptable" hidden>
+                        <section class="services-detail-panel" data-service-panel="assessoria-comptable" id="panel-assessoria-comptable" role="tabpanel" aria-labelledby="tab-assessoria-comptable" tabindex="0" hidden>
                             <h2>Assessorament Comptable</h2>
                             <ul>
                                 <li>Implementació i desenvolupament del sistema comptable segons les necessitats del client. Comptabilitat financera i analítica.</li>
@@ -79,7 +79,7 @@
                             </div>
                         </section>
 
-                        <section class="services-detail-panel" data-service-panel="assessoria-laboral" id="panel-assessoria-laboral" hidden>
+                        <section class="services-detail-panel" data-service-panel="assessoria-laboral" id="panel-assessoria-laboral" role="tabpanel" aria-labelledby="tab-assessoria-laboral" tabindex="0" hidden>
                             <h2>Assessorament Laboral</h2>
                             <ul>
                                 <li>Gestió de l’autònom.</li>
@@ -108,7 +108,7 @@
                             </div>
                         </section>
 
-                        <section class="services-detail-panel" data-service-panel="assessoria-fiscal" id="panel-assessoria-fiscal" hidden>
+                        <section class="services-detail-panel" data-service-panel="assessoria-fiscal" id="panel-assessoria-fiscal" role="tabpanel" aria-labelledby="tab-assessoria-fiscal" tabindex="0" hidden>
                             <h2>Assessorament Fiscal</h2>
                             <ul>
                                 <li>Gestió de les obligacions fiscals de particulars i empreses.</li>
@@ -125,7 +125,7 @@
                             </div>
                         </section>
 
-                        <section class="services-detail-panel" data-service-panel="assessoria-juridica" id="panel-assessoria-juridica" hidden>
+                        <section class="services-detail-panel" data-service-panel="assessoria-juridica" id="panel-assessoria-juridica" role="tabpanel" aria-labelledby="tab-assessoria-juridica" tabindex="0" hidden>
                             <h2>Assessorament Jurídic</h2>
                             <ul>
                                 <li>Assessorament legal a empreses:
@@ -168,7 +168,7 @@
             <p class="footer-contact">Contacta'ns:</p>
             <ul>
                 <li><a href="mailto:administracio@orbitalnexusassessors.com">administracio@orbitalnexusassessors.com</a></li>
-                <li><a href="tel:934112621">934 11 26 21</a></li>
+                <li><a href="tel:934112621">934&nbsp;11&nbsp;26&nbsp;21</a></li>
                 <li><a href="https://maps.app.goo.gl/SdHQtHg3rgU8Luso6" target="_blank" rel="noopener noreferrer">Carrer Jaume I nº8, 08206 Sabadell</a></li>
             </ul>
         </div>
@@ -185,11 +185,11 @@
     </div>
 
     <nav class="footer-legal-nav" aria-label="Informació legal">
-        <a href="avis-legal.html" target="_blank">Avís legal</a>
+        <a href="avis-legal.html" target="_blank" rel="noopener noreferrer">Avís legal</a>
         <span aria-hidden="true">|</span>
-        <a href="privacitat.html" target="_blank">Política de privacitat</a>
+        <a href="privacitat.html" target="_blank" rel="noopener noreferrer">Política de privacitat</a>
         <span aria-hidden="true">|</span>
-        <a href="cookies.html" target="_blank">Política de cookies</a>
+        <a href="cookies.html" target="_blank" rel="noopener noreferrer">Política de cookies</a>
     </nav>
 </footer>
 
@@ -213,6 +213,7 @@
                     const isActive = serviceExists && tab.dataset.service === service;
                     tab.classList.toggle("is-active", isActive);
                     tab.setAttribute("aria-selected", isActive ? "true" : "false");
+                    tab.tabIndex = isActive ? 0 : -1;
                 });
 
                 panels.forEach((panel) => {
@@ -234,10 +235,36 @@
                 tab.addEventListener("click", () => {
                     selectService(tab.dataset.service, true);
                 });
+
+                tab.addEventListener("keydown", (event) => {
+                    const currentIndex = Array.from(tabs).indexOf(tab);
+                    let nextIndex = currentIndex;
+
+                    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                        nextIndex = (currentIndex + 1) % tabs.length;
+                    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+                    } else if (event.key === "Home") {
+                        nextIndex = 0;
+                    } else if (event.key === "End") {
+                        nextIndex = tabs.length - 1;
+                    } else {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    const nextTab = tabs[nextIndex];
+                    selectService(nextTab.dataset.service, true);
+                    nextTab.focus();
+                });
             });
 
             const initialService = window.location.hash.replace("#", "");
             selectService(initialService, false);
+
+            if (!validServices.includes(initialService)) {
+                tabs[0].tabIndex = 0;
+            }
 
             window.addEventListener("popstate", () => {
                 selectService(window.location.hash.replace("#", ""), false);
