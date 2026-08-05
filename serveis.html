@@ -263,6 +263,23 @@
             const initialService = window.location.hash.replace("#", "");
             selectService(initialService, false);
 
+            if (validServices.includes(initialService)) {
+                const servicesArea = document.querySelector(".services-detail-area");
+
+                if (servicesArea) {
+                    const reduceMotion = window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches;
+
+                requestAnimationFrame(() => {
+                    servicesArea.scrollIntoView({
+                        behavior: reduceMotion ? "auto" : "smooth",
+                        block: "start"
+                    });
+                });
+            }
+        }
+
             if (!validServices.includes(initialService)) {
                 tabs[0].tabIndex = 0;
             }
@@ -274,6 +291,8 @@
             window.addEventListener("hashchange", () => {
                 selectService(window.location.hash.replace("#", ""), false);
             });
+
+            
         })();
     </script>
 

@@ -79,6 +79,10 @@ html {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
+
+    .skip-link {
+        transition: none;
+    }
 }
 
 body {
@@ -268,6 +272,10 @@ span.text-important {
     color: var(--color-muted);
     font-size: 0.95rem;
     transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 8px;
 }
 
 .site-nav a:hover {
@@ -278,6 +286,25 @@ span.text-important {
     color: var(--color-text);
 }
 
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 9999;
+    padding: 12px 18px;
+    color: #ffffff;
+    background-color: var(--color-identity);
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
 
 /* =========================================================
    06. BOTONS I ENLLAÇOS DESTACATS
@@ -311,6 +338,9 @@ span.text-important {
 
 .text-link {
     display: inline-block;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 8px;
     color: var(--color-accent);
     font-weight: 600;
     font-size: 0.95rem;
@@ -1242,11 +1272,12 @@ span.text-important {
     list-style: none;
 }
 
-.footer-contact-block li + li {
-    margin-top: 6px;
-}
-
 .footer-contact-block a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 6px;
     color: #2c2c2c;
     transition: color 0.2s ease;
 }
@@ -1287,6 +1318,11 @@ span.text-important {
 }
 
 .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 6px;
     color: #2c2c2c;
     transition: color 0.2s ease;
 }
@@ -1339,6 +1375,10 @@ span.text-important {
 }
 
 .footer-legal-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.2s ease;
@@ -1703,6 +1743,11 @@ span.text-important {
 
     .contact-island-image {
         min-height: 240px;
+    }
+
+    .legal-page-section,
+    .services-hero {
+        background-attachment: scroll;
     }
 
     .services-hero {
