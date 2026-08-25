@@ -26,7 +26,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="inici-contingut">
         <section class="section legal-page-section" aria-labelledby="avis-legal-title">
             <div class="container">
                 <article class="legal-page-content">
@@ -80,6 +80,10 @@
         </section>
     </main>
 
+    <a class="back-to-top" href="#inici-contingut" aria-label="Tornar a l'inici del contingut">
+        <img src="assets/fletxa-amunt.png" alt="" aria-hidden="true">
+    </a>
+
     <footer class="site-footer">
     <div class="container footer-content">
         <div class="footer-brand-block">
@@ -91,7 +95,7 @@
             <p class="footer-contact">Contacta'ns:</p>
             <ul>
                 <li><a href="mailto:administracio@orbitalnexusassessors.com">administracio@orbitalnexusassessors.com</a></li>
-                <li><a href="tel:934112621">934&nbsp;11&nbsp;26&nbsp;21</a></li>
+                <li><a href="tel:937167258">937&nbsp;16&nbsp;72&nbsp;58</a></li>
                 <li><a href="https://maps.app.goo.gl/SdHQtHg3rgU8Luso6" target="_blank" rel="noopener noreferrer">Carrer Jaume I, núm. 8, 08206 Sabadell</a></li>
             </ul>
         </div>
@@ -115,5 +119,17 @@
         <a href="cookies.html">Política de cookies</a>
     </nav>
 </footer>
+<script>
+    const backToTopButton = document.querySelector(".back-to-top");
+
+    if (backToTopButton) {
+        function updateBackToTopButton() {
+            backToTopButton.classList.toggle("is-visible", window.scrollY > 400);
+        }
+
+        window.addEventListener("scroll", updateBackToTopButton, { passive: true });
+        updateBackToTopButton();
+    }
+</script>
 </body>
 </html>

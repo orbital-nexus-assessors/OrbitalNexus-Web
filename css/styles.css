@@ -101,6 +101,49 @@ img {
     display: block;
 }
 
+/* Botó fix per tornar a l'inici del contingut en pàgines extenses. */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: var(--color-identity);
+    border-radius: 8px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    border: 2px solid #ffffff;
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.back-to-top img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -1561,12 +1604,19 @@ span.text-important {
     }
 
     .header-content {
-        padding: 22px 0;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 0;
+    }
+
+    .site-nav {
+    width: 100%;
     }
 
     .site-nav ul {
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 14px 20px;
+        gap: 6px 14px;
     }
 
     .card-grid,
@@ -1606,6 +1656,11 @@ span.text-important {
 
     .contact-island-image {
         min-height: 320px;
+    }
+
+    .legal-page-section,
+    .services-hero {
+        background-attachment: scroll;
     }
 
     .services-hero {
@@ -1715,6 +1770,24 @@ span.text-important {
         padding: 52px 0 32px;
     }
 
+    .header-content {
+    gap: 10px;
+    padding: 14px 0;
+    }
+
+.site-logo img {
+    width: 130px;
+    }
+
+.site-nav ul {
+    gap: 2px 8px;
+    }
+
+.site-nav a {
+    padding-inline: 5px;
+    font-size: 0.88rem;
+}
+
     .welcome-text-wrapper {
         padding: 42px 0;
     }
@@ -1807,6 +1880,15 @@ span.text-important {
         text-align: center;
     }
 
+    .footer-contact-block {
+    min-width: 0;
+    max-width: 100%;
+    }
+
+.footer-contact-block a {
+    overflow-wrap: break-word;
+    }
+
     .legal-page-content {
         padding: 32px 24px;
         border-radius: 14px;
@@ -1828,6 +1910,7 @@ span.text-important {
     .professional-identities-logos img {
         max-width: 130px;
         max-height: 60px;
+        scale: 1.15;
     }
 
     .service-card,
@@ -1835,5 +1918,10 @@ span.text-important {
     .team-card,
     .contact-card {
         padding: 22px;
+    }
+
+    .back-to-top {
+    right: 16px;
+    bottom: 16px;
     }
 }

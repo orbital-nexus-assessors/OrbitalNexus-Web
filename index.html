@@ -24,7 +24,7 @@
                     <li><a class="active" aria-current="page" href="index.html" title="Torna a la pàgina principal.">Inici</a></li>
                     <li><a href="serveis.html" title="Descobreix en detall els serveis que oferim.">Serveis</a></li>
                     <li><a href="nosaltres.html" title="Descobreix el nostre equip.">Nosaltres</a></li>
-                    <li><a href="contacte.html" title="Coneix les formes de contactar amb nosaltes.">Contacte</a></li>
+                    <li><a href="contacte.html" title="Coneix les formes de contactar amb nosaltres.">Contacte</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,13 +45,13 @@
             <div class="welcome-text">
                 <h2 id="benvinguda-title">El nostre compromís</h2>
                 <p class="welcome">
-                    Treballem amb l'objectiu de garantir la millor gestió perquè els nostres clients es puguin dedicar a la seva activitat, mentre nosaltres gestionem les seves obligacions legals, anticipant-nos als esdeveniments i assessorant-lo perquè prenguin la decisió més correcta en cada moment.
+                    Treballem amb l'objectiu de garantir la millor gestió perquè els nostres clients es puguin dedicar a la seva activitat, mentre nosaltres gestionem les seves obligacions legals, anticipant-nos als esdeveniments i assessorant-los perquè prenguin la decisió més correcta en cada moment.
                 </p>
             </div>
         </div>
 
         <div class="welcome-image">
-            <img src="assets/IMG-20240927-WA0031.webp" alt="L'equip d'Orbital Nexus" decoding="async">
+            <img src="assets/IMG-20240927-WA0031.webp" width="1600" height="1200" alt="L'equip d'Orbital Nexus"decoding="async">
         </div>
     </div>
 </section>
@@ -88,7 +88,7 @@
                             <li>Fiscalitat del particular</li>
                             <li>Fiscalitat de pimes i grans empreses</li>
                             <li>Fiscalitat de l’autònoms i el professional lliberal</li>
-                            <li>Fiscalitat Internacional</li>
+                            <li>Fiscalitat internacional</li>
                         </ul>
                     </a>
 
@@ -113,7 +113,7 @@
         <section class="section section-muted" id="nosaltres">
             <div class="container two-column">
                 <div class="section-nosaltres">
-                    <h2>Sobre Nosaltres</h2>
+                    <h2>Sobre nosaltres</h2>
                     <p>El nostre equip està integrat per professionals altament qualificats amb una experiència de més de vint-i-cinc anys en l’assessorament d’empreses     i particulars.</p>
                     <p>Confiança, escolta activa, adaptació i treball en equip amb el client són els nostres trets diferencials.</p>
                     <div class="section-action">
@@ -135,6 +135,10 @@
         </section>
     </main>
 
+    <a class="back-to-top" href="#inici" aria-label="Tornar a l'inici del contingut">
+        <img src="assets/fletxa-amunt.png" width="512" height="512" alt="" aria-hidden="true">
+    </a>
+
     <footer class="site-footer">
     <div class="container footer-content">
         <div class="footer-brand-block">
@@ -146,7 +150,7 @@
             <p class="footer-contact">Contacta'ns:</p>
             <ul>
                 <li><a href="mailto:administracio@orbitalnexusassessors.com">administracio@orbitalnexusassessors.com</a></li>
-                <li><a href="tel:934112621">934&nbsp;11&nbsp;26&nbsp;21</a></li>
+                <li><a href="tel:937167258">937&nbsp;16&nbsp;72&nbsp;58</a></li>
                 <li><a href="https://maps.app.goo.gl/SdHQtHg3rgU8Luso6" target="_blank" rel="noopener noreferrer">Carrer Jaume I, núm. 8, 08206 Sabadell</a></li>
             </ul>
         </div>
@@ -170,5 +174,17 @@
         <a href="cookies.html">Política de cookies</a>
     </nav>
 </footer>
+<script>
+    const backToTopButton = document.querySelector(".back-to-top");
+
+    if (backToTopButton) {
+        function updateBackToTopButton() {
+            backToTopButton.classList.toggle("is-visible", window.scrollY > 400);
+        }
+
+        window.addEventListener("scroll", updateBackToTopButton, { passive: true });
+        updateBackToTopButton();
+    }
+</script>
 </body>
 </html>
