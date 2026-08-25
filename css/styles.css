@@ -1,0 +1,1927 @@
+/* =========================================================
+   00. FONTS LOCALS
+   ---------------------------------------------------------
+   Fonts allotjades dins del mateix projecte per evitar
+   crides externes a Google Fonts.
+========================================================= */
+
+@font-face {
+    font-family: 'Tenor Sans';
+    src: url("../assets/fonts/tenor-sans/TenorSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/montserrat/Montserrat-VariableFont.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/montserrat/Montserrat-Italic-VariableFont.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* =========================================================
+   01. VARIABLES GLOBALS
+   ---------------------------------------------------------
+   Aquí guardem els valors generals del projecte: colors,
+   amplada màxima i espaiat principal entre seccions.
+   Si vols canviar el color identitari de la web, el punt
+   més important és --color-identity.
+========================================================= */
+:root {
+    --color-text: #1d1d1d;
+    --color-muted: #666666;
+    --color-border: #dddddd;
+    --color-background: #ffffff;
+    --color-background-soft: #ffffff;
+    --color-background-dark: #151515;
+    --color-accent: #2f4f4f;
+    --color-accent-hover: #223a3a;
+    --color-identity: #4DA6FF;
+    --max-width: 1200px;
+    --space-section: 72px;
+}
+
+
+/* =========================================================
+   02. RESET BÀSIC I CONFIGURACIÓ GENERAL
+   ---------------------------------------------------------
+   Normalitzem el comportament base del navegador perquè
+   amplades, imatges, enllaços i llistes siguin més fàcils
+   de controlar a tota la web.
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .skip-link {
+        transition: none;
+    }
+}
+
+body {
+    margin: 0;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Botó fix per tornar a l'inici del contingut en pàgines extenses. */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: var(--color-identity);
+    border-radius: 8px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    border: 2px solid #ffffff;
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.back-to-top img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-identity);
+    outline-offset: 4px;
+}
+
+footer a:focus-visible {
+    outline-color: var(--color-background);
+}
+
+ul {
+    margin-top: 0;
+    padding-left: 1.25rem;
+}
+
+
+/* =========================================================
+   03. TIPOGRAFIA
+   ---------------------------------------------------------
+   Els títols fan servir Tenor Sans per donar una aparença
+   més corporativa. El text general es controla des del body.
+========================================================= */
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    /* text-transform: uppercase; */
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+.welcome {
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1.15rem;
+}
+
+.section-intro p {
+    font-size: 1.15rem;
+}
+
+span.text-important {
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   04. CONTENIDORS I BLOCS REUTILITZABLES
+   ---------------------------------------------------------
+   Classes generals que apareixen a diferents pàgines:
+   contenidor central, seccions, columnes i accions.
+========================================================= */
+.container {
+    width: min(100% - 40px, var(--max-width));
+    margin-inline: auto;
+}
+
+.section {
+    padding: var(--space-section) 0;
+}
+
+.section-muted {
+    background-color: var(--color-background-soft);
+    font-size: 1.15rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin-bottom: 32px;
+    margin-inline: auto;
+}
+
+.section-intro p {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.section-action {
+    margin-top: 32px;
+}
+
+.section-action-side {
+    margin-top: 0;
+    justify-self: end;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   05. HEADER, LOGO I NAVEGACIÓ PRINCIPAL
+   ---------------------------------------------------------
+   Capçalera compartida per totes les pàgines.
+========================================================= */
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-background);
+}
+
+.header-content {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.site-logo {
+    display: inline-block;
+}
+
+.site-logo img {
+    width: 150px;
+    height: auto;
+}
+
+.site-nav ul,
+.footer-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav a {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 8px;
+}
+
+.site-nav a:hover {
+    color: var(--color-identity);
+}
+
+.site-nav a.active {
+    color: var(--color-text);
+}
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 9999;
+    padding: 12px 18px;
+    color: #ffffff;
+    background-color: var(--color-identity);
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+/* =========================================================
+   06. BOTONS I ENLLAÇOS DESTACATS
+   ---------------------------------------------------------
+   Botó principal del hero i enllaços textuals com "Veure
+   desglos dels serveis" o "Descobreix el nostre equip".
+========================================================= */
+.button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background-color: var(--color-identity);
+    color: #ffffff;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+}
+
+.button-secondary {
+    background-color: var(--color-identity);
+}
+
+.hero-button {
+    margin-top: 50px;
+}
+
+.text-link {
+    display: inline-block;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 8px;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.text-link:hover {
+    color: var(--color-identity);
+}
+
+
+/* =========================================================
+   07. CARDS BASE
+   ---------------------------------------------------------
+   Aspecte compartit per targetes de serveis, serveis detallats,
+   equip antic i contacte. Mantinc .team-card i .contact-card
+   perquè encara poden ser útils o aparèixer en altres proves.
+========================================================= */
+.service-card,
+.service-detail-card,
+.team-card,
+.contact-card {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background-color: var(--color-background);
+    padding: 28px;
+}
+
+.service-card h3,
+.service-detail-card h2,
+.team-card h2,
+.contact-card h2 {
+    margin-bottom: 14px;
+}
+
+.service-card ul,
+.service-detail-card ul {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   08. HOME - HERO PRINCIPAL
+   ---------------------------------------------------------
+   Primera pantalla de la pàgina d'inici amb imatge de fons,
+   títol principal i botó de contacte.
+========================================================= */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 96px 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("../assets/Despatx_03H.webp");
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: 50% 45%;
+}
+
+.hero-content {
+    max-width: 875px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.hero-content h1,
+.hero-content p {
+    text-align: center;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 0;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   09. HOME - SECCIÓ DE BENVINGUDA
+   ---------------------------------------------------------
+   Secció amb text a l'esquerra i imatge a la dreta. La grid
+   permet que la imatge s'estengui visualment cap al costat dret.
+========================================================= */
+.welcome-section {
+    background-color: var(--color-background-soft);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(0, 600px) minmax(0, 600px) minmax(0, 1fr);
+    align-items: center;
+}
+
+.welcome-text-wrapper {
+    grid-column: 1 / 3;
+    padding: 72px 48px 72px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    max-width: 560px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.welcome-text h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.welcome-image {
+    grid-column: 3 / 5;
+    min-height: 420px;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   10. HOME - RESUM DE SERVEIS
+   ---------------------------------------------------------
+   Grid de 4 targetes a la pàgina principal. Cada targeta és
+   un enllaç complet cap a una secció concreta de serveis.html.
+
+   Important:
+   - .service-card dona l'aspecte visual.
+   - .service-card-link dona el comportament d'enllaç complet.
+   - El href ha de coincidir amb l'id de serveis.html.
+========================================================= */
+.services-section {
+    position: relative;
+    overflow: hidden;
+    background-image: url("../assets/Despatx_05H.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.services-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    z-index: 0;
+}
+
+.services-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.services-section h3{
+    text-align: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.service-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.96);
+    background-image: url("../assets/Despatx_03H.webp");
+    background-blend-mode: lighten;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card--comptable {
+    background-image: url("../assets/contabilidad.png");
+    background-size: 95%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.service-card--laboral {
+    background-image: url("../assets/laboral.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.service-card--fiscal {
+    background-image: url("../assets/fiscal.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.service-card--juridica {
+    background-image: url("../assets/juridico.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.service-card-link:hover,
+.service-card-link:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-identity);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    
+}
+
+.service-card-link:focus-visible {
+    outline: 3px solid rgba(77, 166, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.services-divider {
+    width: min(100%, 720px);
+    height: 1px;
+    margin: 28px auto 30px;
+    background-color: rgba(77, 166, 255, 0.35);
+}
+
+/* =========================================================
+   10B. HOME - SOBRE NOSALTRES I IDENTITATS PROFESSIONALS
+   ---------------------------------------------------------
+   Bloc afegit sota el resum de "Sobre Nosaltres" de l'index.
+   El logo de la gestoria encapçala l'apartat; una línia fina
+   separa aquest logo dels logos professionals que es poden
+   afegir després, com AECE, col·legis professionals, etc.
+========================================================= */
+.section-nosaltres h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.professional-identities {
+    margin-top: 56px;
+    padding-top: 34px;
+    text-align: center;
+}
+
+.professional-identities-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.professional-identities-brand {
+    width: clamp(180px, 22vw, 260px);
+    height: auto;
+    margin-top: 35px;
+}
+
+.professional-identities-divider {
+    width: min(100%, 720px);
+    height: 1px;
+    margin: 28px auto 30px;
+    background-color: rgba(77, 166, 255, 0.35);
+}
+
+.professional-identities-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 28px 44px;
+}
+
+.professional-identities-logos img {
+    width: auto;
+    max-width: 160px;
+    max-height: 74px;
+    object-fit: contain;
+    opacity: 0.82;
+    scale: 1.5;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.professional-identities-logos img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   11. CAPÇALERES DE PÀGINES INTERIORS
+   ---------------------------------------------------------
+   Hero/header curt de pàgines com Serveis i Nosaltres, amb
+   imatge de fons i capa fosca per millorar la lectura.
+========================================================= */
+.page-header {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 72px;
+    color: #ffffff;
+    background-color: var(--color-identity);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header p {
+    max-width: 900px;
+}
+
+.page-header-nosaltres {
+    background-image: url("../assets/Despatx_06H.webp");
+    background-position: left;
+}
+
+.page-header-nosaltres p {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.page-header-contact {
+    background-image: url("../assets/Despatx_04H.webp");
+    background-position: center;
+}
+
+.page-header-services {
+    background-image: url("../assets/Despatx_01H_Inv.webp");
+    background-position: center;
+}
+
+
+/* =========================================================
+   12. PÀGINA SERVEIS - ILLA INTERACTIVA
+   ---------------------------------------------------------
+   Aquesta pàgina deixa de fer servir el page-header clàssic.
+   Ara funciona com la pàgina de contacte: una secció amb
+   imatge de fons i una illa central.
+
+   Funcionament:
+   - .services-hero = fons complet de la pàgina.
+   - .services-island = caixa central gran amb el contingut.
+   - .services-tab = card clicable de cada servei.
+   - .services-tab.is-active = servei seleccionat.
+   - .services-detail-panel = desglos del servei seleccionat.
+
+   El JavaScript de serveis.html llegeix el hash de la URL.
+   Per exemple: serveis.html#assessoria-fiscal
+   i activa automàticament el servei corresponent.
+========================================================= */
+.services-hero {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background-image: url("../assets/Despatx_01H_Inv.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.services-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 0;
+}
+
+.services-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.services-island {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 52px;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.services-island-header {
+    max-width: 860px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.services-island-header h1 {
+    margin-bottom: 18px;
+    color: var(--color-text);
+    font-size: 2rem;
+}
+
+.services-island-header p:last-child {
+    margin-bottom: 0;
+}
+
+.services-eyebrow {
+    margin-bottom: 10px;
+    color: var(--color-identity);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.services-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 34px;
+}
+
+.services-tab {
+    appearance: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100%;
+    color: var(--color-text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.services-tab-title {
+    display: block;
+    margin-bottom: 12px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.services-tab-description {
+    display: block;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.services-tab:hover,
+.services-tab:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--color-identity);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.services-tab:focus-visible {
+    outline: 3px solid rgba(77, 166, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.services-tab.is-active {
+    color: #ffffff;
+    border-color: var(--color-identity);
+    background-color: var(--color-identity);
+    box-shadow: 0 16px 40px rgba(77, 166, 255, 0.28);
+}
+
+.services-tab.is-active .services-tab-title,
+.services-tab.is-active .services-tab-description {
+    color: #ffffff;
+}
+
+.services-detail-area {
+    min-height: 240px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+.services-detail-panel {
+    display: none;
+    max-width: 920px;
+    margin-inline: auto;
+}
+
+.services-detail-panel.is-active {
+    display: block;
+}
+
+.services-detail-panel h2 {
+    margin-bottom: 18px;
+    color: var(--color-text);
+}
+
+.services-detail-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.services-detail-panel ul {
+    margin-bottom: 0;
+    padding-left: 1.35rem;
+}
+
+.services-detail-panel li + li {
+    margin-top: 8px;
+}
+
+.services-detail-panel--placeholder {
+    text-align: center;
+}
+
+.nested-list {
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   13. PÀGINA NOSALTRES - ESTRUCTURA DE L'EQUIP
+   ---------------------------------------------------------
+   Abans aquesta pàgina feia servir una grid de 3 cards.
+   Ara cada persona té una secció pròpia amb text + imatge.
+   El segon perfil fa servir .team-profile--reverse per invertir
+   l'ordre i crear una composició asimètrica.
+========================================================= */
+.team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+}
+
+.team-profiles {
+    background-color: var(--color-background);
+}
+
+.team-profiles-list {
+    display: grid;
+}
+
+.team-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 72px 0;
+}
+
+.team-profile:first-child {
+    padding-top: 0;
+}
+
+.team-profile:last-child {
+    padding-bottom: 0;
+}
+
+.team-profile + .team-profile {
+    border-top: 2px solid rgba(77, 166, 255, 0.28);
+}
+
+.team-profile-content {
+    max-width: 620px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.team-profile-content p:last-child {
+    margin-bottom: 0;
+}
+
+.team-profile-role {
+    margin-bottom: 22px;
+    color: var(--color-identity);
+}
+
+.team-profile--reverse .team-profile-content {
+    order: 2;
+}
+
+.team-profile--reverse .team-profile-media {
+    order: 1;
+}
+
+
+
+
+/* Vista resum de l'equip a nosaltres.html.
+   Cada article funciona com una targeta d'accés al perfil individual. */
+.team-profiles-overview {
+    background-color: var(--color-background);
+}
+
+.team-profiles-overview .container {
+    width: min(100% - 40px, 1400px);
+}
+
+.team-overview-intro {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.team-overview-intro h2 {
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.team-overview-intro p {
+    margin-bottom: 0;
+    font-size: 1.05rem;
+}
+
+.team-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
+    justify-content: center;
+    gap: 24px;
+    align-items:  stretch;
+}
+
+.team-overview-card {
+    height: 100%;
+}
+
+.team-overview-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 390px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-overview-link:hover,
+.team-overview-link:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-identity);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+}
+
+.team-overview-link:focus-visible {
+    outline: 3px solid rgba(77, 166, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.team-overview-media {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+    background-color: var(--color-background-soft);
+}
+
+.team-overview-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.team-overview-media--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px;
+}
+
+.team-overview-media--placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.team-overview-content {
+    padding: 24px 20px 26px;
+    font-size: 0.875rem;
+}
+
+.team-overview-content h2 {
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+}
+
+.team-overview-role {
+    margin-bottom: 0;
+    color: var(--color-identity);
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.team-profile-detail-page .team-profile:first-child {
+    padding-top: 0;
+}
+
+.team-profile-back {
+    margin-top: 28px;
+}
+
+.team-profile-media--placeholder {
+    padding: 42px;
+    background-color: var(--color-background-soft);
+}
+
+.team-profile-media--placeholder img {
+    object-fit: contain;
+    transform: none;
+}
+
+
+/* =========================================================
+   14. PÀGINA NOSALTRES - CROP D'IMATGES DE L'EQUIP
+   ---------------------------------------------------------
+   Sistema de retall visual de les imatges del personal.
+
+   .team-profile-media = marc fix visible.
+   img = imatge que omple el marc.
+   --crop-scale = zoom intern.
+   --crop-x / --crop-y = desplaçament intern de la imatge.
+
+   Recorda:
+   - --crop-x positiu mou la imatge cap a la dreta.
+   - --crop-x negatiu mou la imatge cap a l'esquerra.
+   - --crop-y positiu mou la imatge cap avall.
+   - --crop-y negatiu mou la imatge cap amunt.
+========================================================= */
+.team-profile-media {
+    --crop-scale: 1;
+    --crop-x: 0px;
+    --crop-y: 0px;
+
+    margin: 30px 0;
+    width: 260px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 18px;
+    justify-self: center;
+    align-self: center;
+    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.16);
+}
+
+.team-profile-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(var(--crop-x), var(--crop-y)) scale(var(--crop-scale));
+    transform-origin: center;
+}
+
+.crop-jordi {
+    --crop-scale: 1.38;
+    --crop-x: 0px;
+    --crop-y: -12px;
+}
+
+.crop-lis {
+    --crop-scale: 1.18;
+    --crop-x: 0px;
+    --crop-y: 0px;
+}
+
+.crop-maria {
+    --crop-scale: 1.28;
+    --crop-x: 35px;
+    --crop-y: -10px;
+}
+
+
+/* =========================================================
+   15. PÀGINA CONTACTE - HERO AMB ILLA CENTRAL
+   ---------------------------------------------------------
+   La pàgina de contacte no fa servir el page-header clàssic.
+   Té una imatge de fons a pantalla completa i una targeta central
+   amb dades de contacte i imatge lateral.
+========================================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-card-muted {
+    background-color: var(--color-background-soft);
+}
+
+.contact-hero {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: url("../assets/Despatx_04H.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.38);
+    z-index: 0;
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-island {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    max-width: 980px;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.contact-island a {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.contact-island a:hover {
+    color: var(--color-identity);
+}
+
+.contact-island-text {
+    padding: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-island-text h1 {
+    margin-bottom: 28px;
+    color: var(--color-text);
+}
+
+.contact-island-text p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-island-image {
+    min-height: 420px;
+}
+
+.contact-island-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ---------------------------------------------------------
+   Peu de pàgina compartit per totes les pàgines.
+========================================================= */
+.site-footer {
+    padding: 38px 0;
+    color: #ffffff;
+    background-color: var(--color-identity);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.footer-brand-block {
+    justify-self: start;
+}
+
+.footer-contact-block {
+    justify-self: center;
+    text-align: center;
+}
+
+.footer-nav {
+    justify-self: end;
+}
+
+.footer-contact-block ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-contact-block a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 6px;
+    color: #2c2c2c;
+    transition: color 0.2s ease;
+}
+
+.footer-contact-block a:hover {
+    color: #fbfbfb;
+}
+
+.footer-brand {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.footer-contact {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+}
+
+.footer-navegacio {
+    margin-bottom: 8px;
+    font-family: 'Tenor Sans', 'Microsoft Yi Baiti', serif;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 0;
+    color: #2c2c2c;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 6px;
+    color: #2c2c2c;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: #fbfbfb;
+}
+
+/* =========================================================
+   16B. FOOTER LEGAL I PÀGINES LEGALS
+   ---------------------------------------------------------
+   Enllaços legals centrats sota el footer principal i
+   estructura base per a les pàgines legals: Avís legal,
+   Política de privacitat i Declaració d'accessibilitat.
+========================================================= */
+
+/* =========================================================
+   Estirem el footer fins a la part inferior de la pàgina i fem que
+   el main ocupi tot l'espai restant.
+========================================================= */
+.legal-page{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.legal-page main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: relative;
+}
+
+/* =========================================================
+   Estirem el footer fins a la part inferior de la pàgina i fem que
+   el main ocupi tot l'espai restant.
+========================================================= */
+
+.footer-legal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 84px;
+    color: #2c2c2c;
+    font-size: 0.9rem;
+}
+
+.footer-legal-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-nav a:hover {
+    color: #fbfbfb;
+}
+
+.legal-page-section {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background-image: url("../assets/Despatx_01H_Inv.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.legal-page-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(250, 250, 250, 0.8);
+    z-index: 0;
+}
+
+.legal-page-content {
+    max-width: 80ch;
+    margin-inline: auto;
+    padding: 52px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 1;
+    text-align: left;
+}
+
+.legal-page-content h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.legal-page-content p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.text-underlined {
+    text-decoration: underline;
+}
+
+.important-text {
+    font-weight: 500;
+}
+
+.legal-page-content a {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.legal-page-content a:hover {
+    color: var(--color-identity);
+}
+
+/*AVIS LEGAL*/
+.ownership-subsection,
+.object-subsection,
+.conditions-subsection,
+.property-subsection,
+.links-subsection,
+.responsabilities-subsection,
+.legislation-subsection {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+/*POL. PRIVACITAT*/
+.info-subsection,
+.accountable-subsection,
+.legitimization-subsection,
+.data-subsection,
+.goal-subsection,
+.period-subsection,
+.cession-subsection,
+.rights-subsection,
+.ward-subsection,
+.sending-subsection,
+.legislation2-subsection {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+/*COOKIES*/
+.what-subsection,
+.types-subsection,
+.change-subsection {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(77, 166, 255, 0.28);
+}
+
+.ownership-subsection ul,
+.accountable-subsection ul,
+.change-subsection ul {
+    list-style-type: none;
+}
+
+.types-subsection ul,
+.change-subsection ul {
+    text-align: left;
+}
+
+/*AVIS LEGAL*/
+.ownership-subsection h2,
+.object-subsection h2,
+.conditions-subsection h2,
+.property-subsection h2,
+.links-subsection h2,
+.responsabilities-subsection h2,
+.legislation-subsection h2 {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+}
+
+/*POL. PRIVACITAT*/
+.info-subsection h2,
+.accountable-subsection h2,
+.legitimization-subsection h2,
+.data-subsection h2,
+.goal-subsection h2,
+.period-subsection h2,
+.cession-subsection h2,
+.rights-subsection h2,
+.ward-subsection h2,
+.sending-subsection h2,
+.legislation2-subsection h2 {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+}
+
+/*COOKIES*/
+.what-subsection h2,
+.types-subsection h2,
+.change-subsection h2 {
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - TABLET I PANTALLES MITJANES
+   ---------------------------------------------------------
+   A partir de 900px cap avall, diverses estructures passen
+   de dues o quatre columnes a una composició més flexible.
+========================================================= */
+@media (max-width: 900px) {
+    .header-content,
+    .two-column {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header-content {
+        align-items: center;
+        gap: 14px;
+        padding: 18px 0;
+    }
+
+    .site-nav {
+    width: 100%;
+    }
+
+    .site-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+    }
+
+    .card-grid,
+    .team-grid,
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-text-wrapper,
+    .welcome-image {
+        grid-column: auto;
+    }
+
+    .welcome-text-wrapper {
+        width: min(100% - 40px, var(--max-width));
+        margin-inline: auto;
+        padding: 52px 0;
+    }
+
+    .welcome-image {
+        min-height: 320px;
+    }
+
+    .contact-island {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+    }
+
+    .contact-island-image {
+        min-height: 320px;
+    }
+
+    .legal-page-section,
+    .services-hero {
+        background-attachment: scroll;
+    }
+
+    .services-hero {
+        padding: 68px 0;
+        align-items: flex-start;
+    }
+
+    .services-island {
+        padding: 40px;
+    }
+
+    .services-selector {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .team-profile,
+    .team-profile--reverse {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 56px 0;
+    }
+
+    .team-profile-content,
+    .team-profile--reverse .team-profile-content {
+        order: 1;
+        justify-self: start;
+        max-width: none;
+    }
+
+    .team-profile-media,
+    .team-profile--reverse .team-profile-media {
+        order: 2;
+        width: 260px;
+        height: 320px;
+        max-width: 100%;
+    }
+
+    .team-overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-overview-media {
+        height: 300px;
+    }
+
+    .professional-identities {
+        margin-top: 44px;
+        padding-top: 28px;
+    }
+
+    .footer-legal-nav {
+        margin-top: 24px;
+        justify-content: flex-start;
+    }
+
+
+    .professional-identities-logos {
+        gap: 24px 34px;
+    }
+
+    .section-action-side {
+        justify-self: start;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-brand-block,
+    .footer-contact-block,
+    .footer-nav {
+        justify-self: center;
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+    }
+
+    .footer-legal-nav {
+        justify-content: center;
+    }
+}
+
+
+
+/* =========================================================
+   18. RESPONSIVE - MÒBIL
+   ---------------------------------------------------------
+   A partir de 640px cap avall, les grids passen a una columna,
+   es redueixen espais i les imatges es fan més petites.
+========================================================= */
+@media (max-width: 640px) {
+    :root {
+        --space-section: 52px;
+    }
+
+    .container {
+        width: min(100% - 28px, var(--max-width));
+    }
+
+    .hero {
+        padding: 68px 0;
+    }
+
+    .page-header {
+        padding: 52px 0 32px;
+    }
+
+    .header-content {
+    gap: 10px;
+    padding: 14px 0;
+    }
+
+.site-logo img {
+    width: 130px;
+    }
+
+.site-nav ul {
+    gap: 2px 8px;
+    }
+
+.site-nav a {
+    padding-inline: 5px;
+    font-size: 0.88rem;
+}
+
+    .welcome-text-wrapper {
+        padding: 42px 0;
+    }
+
+    .welcome-image {
+        min-height: 240px;
+    }
+
+    .card-grid,
+    .team-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero {
+        padding: 52px 0;
+    }
+
+    .contact-island {
+        border-radius: 18px;
+    }
+
+    .contact-island-text {
+        padding: 32px 24px;
+    }
+
+    .contact-island-image {
+        min-height: 240px;
+    }
+
+    .legal-page-section,
+    .services-hero {
+        background-attachment: scroll;
+    }
+
+    .services-hero {
+        padding: 52px 0;
+    }
+
+    .services-island {
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    .services-island-header {
+        margin-bottom: 28px;
+    }
+
+    .services-selector {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+
+    .services-detail-area {
+        padding-top: 26px;
+    }
+
+    .team-profile {
+        padding: 44px 0;
+    }
+
+    .team-profile-media {
+        width: min(100%, 240px);
+        height: 300px;
+        border-radius: 18px;
+    }
+
+    .team-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-overview-media {
+        height: 320px;
+    }
+
+    .team-overview-content {
+        padding: 22px;
+    }
+
+    .professional-identities {
+        margin-top: 36px;
+        padding-top: 24px;
+    }
+
+    .footer-legal-nav {
+        justify-content: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .footer-contact-block {
+    min-width: 0;
+    max-width: 100%;
+    }
+
+.footer-contact-block a {
+    overflow-wrap: break-word;
+    }
+
+    .legal-page-content {
+        padding: 32px 24px;
+        border-radius: 14px;
+    }
+
+
+    .professional-identities-brand {
+        width: min(100%, 210px);
+    }
+
+    .professional-identities-divider {
+        margin: 22px auto 24px;
+    }
+
+    .professional-identities-logos {
+        gap: 22px;
+    }
+
+    .professional-identities-logos img {
+        max-width: 130px;
+        max-height: 60px;
+        scale: 1.15;
+    }
+
+    .service-card,
+    .service-detail-card,
+    .team-card,
+    .contact-card {
+        padding: 22px;
+    }
+
+    .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    }
+}
