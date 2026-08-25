@@ -497,8 +497,6 @@ span.text-important {
 
 .welcome-text {
     max-width: 560px;
-    text-align: justify;
-    text-justify: inter-word;
 }
 
 .welcome-text h2 {
