@@ -69,7 +69,10 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: auto;
+        max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    scroll-behavior: smooth;
     }
 
     *,
@@ -93,6 +96,7 @@ body {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 img {
