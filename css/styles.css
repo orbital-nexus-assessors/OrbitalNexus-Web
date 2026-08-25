@@ -1258,6 +1258,8 @@ span.text-important {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .contact-island-text h1 {
@@ -1652,7 +1654,7 @@ span.text-important {
     }
 
     .contact-island {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         max-width: 720px;
     }
 
