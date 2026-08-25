@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.orbitalnexusassessors\.com$ [NC]
+RewriteRule ^(.*)$ https://orbitalnexusassessors.com/$1 [R=302,L]
