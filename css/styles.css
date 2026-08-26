@@ -1495,6 +1495,15 @@ span.text-important {
     overflow-wrap: anywhere;
 }
 
+.contact-island-text a,
+.legal-page-content a {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 .legal-page-content h1 {
     margin-bottom: 20px;
     font-size: 1.8rem;
