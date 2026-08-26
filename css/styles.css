@@ -1478,6 +1478,21 @@ span.text-important {
     position: relative;
     z-index: 1;
     text-align: left;
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.contact-island-text p,
+.contact-island-text a,
+.legal-page-content p,
+.legal-page-content li,
+.legal-page-content a {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .legal-page-content h1 {
@@ -1488,6 +1503,10 @@ span.text-important {
 .legal-page-content p {
     margin-bottom: 0;
     text-align: left;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .text-underlined {
@@ -1500,7 +1519,7 @@ span.text-important {
 
 .legal-page-content a {
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: 500;    
 }
 
 .legal-page-content a:hover {
