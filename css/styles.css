@@ -47,6 +47,7 @@
     --color-accent: #2f4f4f;
     --color-accent-hover: #223a3a;
     --color-identity: #4DA6FF;
+    --color-identity-action: #0074D9;
     --max-width: 1200px;
     --space-section: 72px;
 }
@@ -118,7 +119,7 @@ img {
     height: 48px;
     padding: 10px;
     color: #ffffff;
-    background-color: var(--color-identity);
+    background-color: var(--color-identity-action);
     border-radius: 8px;
     text-decoration: none;
     opacity: 0;
@@ -340,7 +341,7 @@ span.text-important {
     z-index: 9999;
     padding: 12px 18px;
     color: #ffffff;
-    background-color: var(--color-identity);
+    background-color: var(--color-identity-action);
     border-radius: 4px;
     font-weight: 600;
     text-decoration: none;
@@ -364,7 +365,7 @@ span.text-important {
     margin-top: 16px;
     padding: 13px 22px;
     border-radius: 999px;
-    background-color: var(--color-identity);
+    background-color: var(--color-identity-action);
     color: #ffffff;
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -376,7 +377,7 @@ span.text-important {
 }
 
 .button-secondary {
-    background-color: var(--color-identity);
+    background-color: var(--color-identity-action);
 }
 
 .hero-button {
@@ -585,28 +586,28 @@ span.text-important {
 }
 
 .service-card--comptable {
-    background-image: url("../assets/contabilidad.png");
+    background-image: url("../assets/contabilidad.webp");
     background-size: 95%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--laboral {
-    background-image: url("../assets/laboral.png");
+    background-image: url("../assets/laboral.webp");
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--fiscal {
-    background-image: url("../assets/fiscal.png");
+    background-image: url("../assets/fiscal.webp");
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
 .service-card--juridica {
-    background-image: url("../assets/juridico.png");
+    background-image: url("../assets/juridico.webp");
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -987,7 +988,7 @@ span.text-important {
 
 .team-profile-role {
     margin-bottom: 22px;
-    color: var(--color-identity);
+    color: var(--color-identity-action);
 }
 
 .team-profile--reverse .team-profile-content {
@@ -1106,7 +1107,7 @@ span.text-important {
 
 .team-overview-role {
     margin-bottom: 0;
-    color: var(--color-identity);
+    color: var(--color-identity-action);
     font-weight: 400;
     line-height: 1.45;
 }
