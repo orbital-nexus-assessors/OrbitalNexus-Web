@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Versión catalana -->
     <url>
         <loc>https://orbitalnexusassessors.com/</loc>
     </url>
@@ -29,5 +30,37 @@
     </url>
     <url>
         <loc>https://orbitalnexusassessors.com/cookies.html</loc>
+    </url>
+
+    <!-- Versión castellana -->
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/servicios.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/nosotros.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/contacto.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/jordi-marin.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/lis-romera.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/maria-jose-canchado.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/aviso-legal.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/privacidad.html</loc>
+    </url>
+    <url>
+        <loc>https://orbitalnexusassessors.com/es/cookies.html</loc>
     </url>
 </urlset>
