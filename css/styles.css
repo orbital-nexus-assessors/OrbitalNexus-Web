@@ -1421,6 +1421,13 @@ span.text-important {
     color: #fbfbfb;
 }
 
+.footer-contact-divider {
+    width: min(100%, 720px);
+    height: 1px;
+    margin: 28px auto 30px;
+    background-color: rgba(3, 3, 3, 0.307);
+}
+
 /* =========================================================
    16B. FOOTER LEGAL I PÀGINES LEGALS
    ---------------------------------------------------------
