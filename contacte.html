@@ -65,6 +65,72 @@
     </header>
 
     <main>
+        <section class="contact-form-section" aria-labelledby="formulari-contacte-title">
+            <div class="container">
+                <div class="contact-form-card">
+                    <div class="contact-form-header">
+                        <h1 id="formulari-contacte-title">Envia'ns la teva consulta</h1>
+                        <p>Explica'ns breument en què et podem ajudar i ens posarem en contacte amb tu.</p>
+                    </div>
+
+                    <form class="contact-form" action="/enviar-consulta.php" method="post">
+                        <input type="hidden" name="language" value="ca">
+
+                        <p class="contact-form-required"><span aria-hidden="true" class="blue">*</span> Camps obligatoris</p>
+
+                        <div class="contact-form-grid">
+                            <div class="contact-form-field">
+                                <label for="contact-name">Nom i cognoms <span aria-hidden="true" class="blue">*</span></label>
+                                <input id="contact-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required>
+                            </div>
+
+                            <div class="contact-form-field">
+                                <label for="contact-email">Correu electrònic <span aria-hidden="true" class="blue">*</span></label>
+                                <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+                            </div>
+
+                            <div class="contact-form-field contact-form-field--full">
+                                <label for="contact-phone">Telèfon</label>
+                                <input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30">
+                            </div>
+
+                            <div class="contact-form-field contact-form-field--full">
+                                <label for="contact-subject">Assumpte <span aria-hidden="true" class="blue">*</span></label>
+                                <input id="contact-subject" name="subject" type="text" minlength="3" maxlength="120" required>
+                            </div>
+
+                            <div class="contact-form-field contact-form-field--full">
+                                <label for="contact-message">Consulta <span aria-hidden="true" class="blue">*</span></label>
+                                <textarea id="contact-message" name="message" rows="7" minlength="20" maxlength="3000" required></textarea>
+                                <p class="contact-form-help">No incloguis dades fiscals, bancàries ni documentació sensible en aquest primer missatge.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-honeypot" aria-hidden="true">
+                            <label for="contact-website">Lloc web</label>
+                            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="contact-form-privacy">
+                            <p><strong>Informació bàsica sobre protecció de dades:</strong> Orbital Nexus Assessors i Consultors, S.L. tractarà les dades per gestionar i respondre la teva consulta. La legitimació és l'atenció de la teva sol·licitud i, si escau, l'aplicació de mesures precontractuals. No es preveuen cessions, sens perjudici dels encarregats del tractament i les obligacions legals. Pots exercir els teus drets d'acord amb la nostra <a href="privacitat.html">política de privacitat</a>.</p>
+
+                            <div class="contact-form-checkbox">
+                                <input id="contact-privacy" name="privacy_acknowledged" type="checkbox" value="1" required>
+                                <label for="contact-privacy">Confirmo que he llegit la informació bàsica sobre protecció de dades. <span aria-hidden="true" class="blue">*</span></label>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-actions">
+                            <button class="button contact-form-submit" type="submit"> Enviar consulta</button>
+                            <a class="form-signature" href="index.html">
+                                <img src="assets/image001.webp" width="763" height="261" alt="Orbital Nexus">
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
         <section class="contact-hero" aria-labelledby="contacte-title">
             <div class="container contact-hero-content">
                 <article class="contact-island">

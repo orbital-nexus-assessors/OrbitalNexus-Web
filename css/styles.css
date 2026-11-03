@@ -1324,6 +1324,216 @@ span.text-important {
     object-fit: cover;
 }
 
+/* Formulari de contacte compartit per les versions catalana i castellana. */
+.contact-form-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: var(--space-section) 0;
+    background-color: #f4f7fa39;
+
+    background-image: url("../assets/Despatx_01H_Inv.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.contact-form-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(250, 250, 250, 0.8);
+    z-index: 0;
+}
+
+.contact-form-section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form-card {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 52px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background-color: var(--color-background);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form-header {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.contact-form-header h1 {
+    margin-bottom: 12px;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    text-transform: none;
+}
+
+.contact-form-header h2 {
+    margin-bottom: 12px;
+}
+
+.contact-form-header p,
+.contact-form-required,
+.contact-form-help,
+.contact-form-privacy p {
+    margin-bottom: 0;
+}
+
+.contact-form-required {
+    margin-bottom: 18px;
+    color: var(--color-identity-action);
+    font-size: 0.9rem;
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 24px;
+}
+
+.contact-form-field {
+    min-width: 0;
+}
+
+.contact-form-field--full {
+    grid-column: 1 / -1;
+}
+
+.contact-form-field label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.contact-form-optional {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.contact-form-field input,
+.contact-form-field textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #a8a8a8;
+    border-radius: 8px;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font: inherit;
+    line-height: 1.5;
+}
+
+.contact-form-field input {
+    min-height: 48px;
+}
+
+.contact-form-field textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.contact-form-field input:hover,
+.contact-form-field textarea:hover {
+    border-color: var(--color-muted);
+}
+
+.contact-form-field input:focus-visible,
+.contact-form-field textarea:focus-visible,
+.contact-form-checkbox input:focus-visible {
+    outline: 3px solid var(--color-identity);
+    outline-offset: 3px;
+    border-color: var(--color-identity-action);
+}
+
+.contact-form-help {
+    margin-top: 7px;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+}
+
+.contact-form-privacy {
+    margin-top: 28px;
+    padding: 20px;
+    border-left: 4px solid var(--color-identity-action);
+    background-color: #f7f9fb;
+    font-size: 0.9rem;
+}
+
+.contact-form-privacy a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-form-privacy a:hover {
+    color: var(--color-identity-action);
+}
+
+.contact-form-checkbox {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.contact-form-checkbox input {
+    width: 20px;
+    height: 20px;
+    margin: 2px 0 0;
+    accent-color: var(--color-identity-action);
+}
+
+.contact-form-checkbox label {
+    cursor: pointer;
+}
+
+.contact-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 26px;
+}
+
+.contact-form-submit {
+    margin: 0;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.form-signature {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.form-signature img {
+    display: block;
+    width: 150px;
+    height: auto;
+    border: 0;
+}
+
+.contact-form-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
 
 /* =========================================================
    16. FOOTER
@@ -1524,6 +1734,12 @@ span.text-important {
     overflow-wrap: anywhere;
 }
 
+.contact-island-text h1,
+.contact-island-text h2 {
+    margin-bottom: 28px;
+    color: var(--color-text);
+}
+
 .contact-island-text p,
 .contact-island-text a,
 .legal-page-content p,
@@ -1671,6 +1887,10 @@ span.text-important {
     font-weight: 600;
 }
 
+.blue{
+    color: var(--color-identity-action);
+}
+
 
 /* =========================================================
    17. RESPONSIVE - TABLET I PANTALLES MITJANES
@@ -1807,6 +2027,10 @@ span.text-important {
         justify-self: start;
     }
 
+    .contact-form-section {
+    background-attachment: scroll;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1898,6 +2122,38 @@ span.text-important {
 
     .contact-island-image {
         min-height: 240px;
+    }
+
+    .contact-form-card {
+        padding: 32px 24px;
+        border-radius: 14px;
+    }
+
+    .contact-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .contact-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    }
+
+.contact-form-submit {
+    width: 100%;
+    }
+
+.form-signature {
+    align-self: center;
+    }
+
+    .contact-form-field--full {
+        grid-column: auto;
+    }
+
+    .contact-form-privacy {
+        padding: 18px 16px;
     }
 
     .legal-page-section,
