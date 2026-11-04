@@ -38,6 +38,33 @@ function respond(int $statusCode, string $message): never
     exit;
 }
 
+/**
+ * Redirige a la página visual correspondiente según
+ * el idioma y el resultado del procesamiento.
+ *
+ * El código 303 hace que la siguiente petición sea GET,
+ * evitando repetir el envío POST al actualizar la página.
+ */
+function redirectToResult(string $language, string $result): never
+{
+    $routes = [
+        'ca' => [
+            'success' => '/consulta-enviada.html',
+            'error' => '/error-consulta.html',
+        ],
+        'es' => [
+            'success' => '/es/consulta-enviada.html',
+            'error' => '/es/error-consulta.html',
+        ],
+    ];
+
+    $location = $routes[$language][$result]
+        ?? $routes['ca']['error'];
+
+    header('Location: ' . $location, true, 303);
+    exit;
+}
+
 /*
  * El formulario solo puede procesarse mediante POST.
  * Abrir enviar-consulta.php directamente en el navegador utiliza GET.
@@ -94,7 +121,7 @@ $text = $messages[$language];
 $website = getPostString('website');
 
 if ($website !== '') {
-    respond(200, $text['success']);
+    redirectToResult($language, 'success');
 }
 
 /*
@@ -158,12 +185,7 @@ if ($privacyAcknowledged !== '1') {
 }
 
 if ($errors !== []) {
-    $errorList = '- ' . implode("\n- ", $errors);
-
-    respond(
-        422,
-        $text['invalid_intro'] . "\n\n" . $errorList
-    );
+    redirectToResult($language, 'error');
 }
 
 /*
@@ -185,13 +207,13 @@ foreach ($configPaths as $candidatePath) {
 }
 
 if ($configPath === null) {
-    respond(500, $text['config']);
+    redirectToResult($language, 'error');
 }
 
 $config = require $configPath;
 
 if (!is_array($config)) {
-    respond(500, $text['config']);
+    redirectToResult($language, 'error');
 }
 
 /*
@@ -215,7 +237,7 @@ foreach ($requiredConfigKeys as $key) {
         || $config[$key] === ''
         || $config[$key] === null
     ) {
-        respond(500, $text['config']);
+        redirectToResult($language, 'error');
     }
 }
 
@@ -225,7 +247,7 @@ foreach ($requiredConfigKeys as $key) {
 $autoloadPath = __DIR__ . '/vendor/autoload.php';
 
 if (!is_file($autoloadPath)) {
-    respond(500, $text['config']);
+    redirectToResult($language, 'error');
 }
 
 require $autoloadPath;
@@ -241,7 +263,7 @@ $encryption = match ((string) $config['encryption']) {
 };
 
 if ($encryption === null) {
-    respond(500, $text['config']);
+    redirectToResult($language, 'error');
 }
 
 /*
@@ -318,7 +340,8 @@ try {
 
     $mail->send();
 
-    respond(200, $text['success']);
+    redirectToResult($language, 'success');
+
 } catch (Exception $exception) {
     /*
      * Guardamos información técnica en el registro del servidor,
@@ -329,5 +352,5 @@ try {
         . $mail->ErrorInfo
     );
 
-    respond(500, $text['send_error']);
+    redirectToResult($language, 'error');
 }
