@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 /**
  * Devuelve un campo POST únicamente cuando contiene texto.
@@ -65,7 +67,8 @@ $messages = [
         'message' => 'La consulta ha de tenir entre 20 i 3.000 caràcters.',
         'privacy' => 'Has de confirmar que has llegit la informació sobre protecció de dades.',
         'config' => 'No s’ha pogut carregar la configuració del servidor.',
-        'success' => 'Validació correcta. En aquesta fase de prova encara no s’ha enviat cap correu.',
+        'send_error' => 'No hem pogut enviar la consulta. Torna-ho a provar més tard o contacta amb nosaltres per correu o telèfon.',
+        'success' => 'La consulta s’ha enviat correctament. Ens posarem en contacte amb tu tan aviat com sigui possible.',
     ],
     'es' => [
         'invalid_intro' => 'No hemos podido validar la consulta:',
@@ -76,7 +79,8 @@ $messages = [
         'message' => 'La consulta debe tener entre 20 y 3.000 caracteres.',
         'privacy' => 'Debes confirmar que has leído la información sobre protección de datos.',
         'config' => 'No se ha podido cargar la configuración del servidor.',
-        'success' => 'Validación correcta. En esta fase de prueba todavía no se ha enviado ningún correo.',
+        'send_error' => 'No hemos podido enviar la consulta. Vuelve a intentarlo más tarde o contacta con nosotros por correo o teléfono.',
+        'success' => 'La consulta se ha enviado correctamente. Nos pondremos en contacto contigo lo antes posible.',
     ],
 ];
 
@@ -191,7 +195,139 @@ if (!is_array($config)) {
 }
 
 /*
- * Punto alcanzado cuando la petición y la configuración son válidas.
- * En la siguiente fase añadiremos aquí el envío con PHPMailer.
+ * Comprobamos que la configuración contiene todos los valores necesarios.
  */
-respond(200, $text['success']);
+$requiredConfigKeys = [
+    'host',
+    'port',
+    'encryption',
+    'username',
+    'password',
+    'from_email',
+    'from_name',
+    'to_email',
+    'to_name',
+];
+
+foreach ($requiredConfigKeys as $key) {
+    if (
+        !array_key_exists($key, $config)
+        || $config[$key] === ''
+        || $config[$key] === null
+    ) {
+        respond(500, $text['config']);
+    }
+}
+
+/*
+ * Composer carga automáticamente PHPMailer desde vendor/.
+ */
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
+
+if (!is_file($autoloadPath)) {
+    respond(500, $text['config']);
+}
+
+require $autoloadPath;
+
+/*
+ * Traducimos nuestra palabra de configuración a la constante
+ * utilizada internamente por PHPMailer.
+ */
+$encryption = match ((string) $config['encryption']) {
+    'smtps' => PHPMailer::ENCRYPTION_SMTPS,
+    'starttls' => PHPMailer::ENCRYPTION_STARTTLS,
+    default => null,
+};
+
+if ($encryption === null) {
+    respond(500, $text['config']);
+}
+
+/*
+ * Preparamos un mensaje interno legible para la gestoría.
+ */
+$receivedAt = new DateTimeImmutable(
+    'now',
+    new DateTimeZone('Europe/Madrid')
+);
+
+$phoneForEmail = $phone !== ''
+    ? $phone
+    : 'No indicado';
+
+$languageForEmail = $language === 'ca'
+    ? 'Catalán'
+    : 'Castellano';
+
+$emailBody = implode("\n", [
+    'Nueva consulta recibida desde la web de Orbital Nexus',
+    '',
+    'Nombre: ' . $name,
+    'Correo electrónico: ' . $email,
+    'Teléfono: ' . $phoneForEmail,
+    'Idioma del formulario: ' . $languageForEmail,
+    'Fecha de recepción: ' . $receivedAt->format('d/m/Y H:i:s'),
+    '',
+    'Asunto indicado por el usuario:',
+    $subject,
+    '',
+    'Consulta:',
+    $message,
+]);
+
+$mail = new PHPMailer(true);
+
+try {
+    /*
+     * Conexión segura con el servidor SMTP de Hostinger.
+     */
+    $mail->isSMTP();
+    $mail->Host = (string) $config['host'];
+    $mail->SMTPAuth = true;
+    $mail->Username = (string) $config['username'];
+    $mail->Password = (string) $config['password'];
+    $mail->SMTPSecure = $encryption;
+    $mail->Port = (int) $config['port'];
+
+    /*
+     * Configuración del mensaje.
+     */
+    $mail->CharSet = 'UTF-8';
+    $mail->Hostname = 'orbitalnexusassessors.com';
+
+    $mail->setFrom(
+        (string) $config['from_email'],
+        (string) $config['from_name']
+    );
+
+    $mail->addAddress(
+        (string) $config['to_email'],
+        (string) $config['to_name']
+    );
+
+    /*
+     * Al pulsar Responder, la respuesta se dirigirá al visitante,
+     * aunque el remitente técnico sea laboral@orbitalnexus.es.
+     */
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = '[Formulario web] ' . $subject;
+    $mail->Body = $emailBody;
+    $mail->isHTML(false);
+
+    $mail->send();
+
+    respond(200, $text['success']);
+} catch (Exception $exception) {
+    /*
+     * Guardamos información técnica en el registro del servidor,
+     * pero nunca se la mostramos al visitante.
+     */
+    error_log(
+        'Error SMTP del formulario de contacto: '
+        . $mail->ErrorInfo
+    );
+
+    respond(500, $text['send_error']);
+}
