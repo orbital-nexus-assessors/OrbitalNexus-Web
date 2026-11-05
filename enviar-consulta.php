@@ -51,10 +51,12 @@ function redirectToResult(string $language, string $result): never
         'ca' => [
             'success' => '/consulta-enviada.html',
             'error' => '/error-consulta.html',
+            'rate_limit' => '/exces-consulta.html',
         ],
         'es' => [
             'success' => '/es/consulta-enviada.html',
             'error' => '/es/error-consulta.html',
+            'rate_limit' => '/es/exceso-consulta.html',
         ],
     ];
 
@@ -63,6 +65,132 @@ function redirectToResult(string $language, string $result): never
 
     header('Location: ' . $location, true, 303);
     exit;
+}
+
+/**
+ * Limita el número de consultas enviadas desde una misma conexión.
+ *
+ * No guarda la dirección IP directamente: utiliza un hash.
+ * El archivo se almacena junto a la configuración SMTP, fuera
+ * de public_html, y elimina los registros caducados.
+ */
+function isRateLimited(
+    string $storagePath,
+    int $maximumAttempts = 3,
+    int $windowSeconds = 900
+): bool {
+    $ipAddress = $_SERVER['REMOTE_ADDR'] ?? '';
+
+    /*
+     * Si el servidor no proporciona una IP válida, no bloqueamos
+     * al visitante. El formulario mantiene el resto de protecciones.
+     */
+    if (
+        !is_string($ipAddress)
+        || filter_var($ipAddress, FILTER_VALIDATE_IP) === false
+    ) {
+        return false;
+    }
+
+    $connectionKey = hash(
+        'sha256',
+        'orbital-nexus-contact-form|' . $ipAddress
+    );
+
+    $handle = fopen($storagePath, 'c+');
+
+    /*
+     * Si no podemos abrir el archivo temporal, registramos el problema,
+     * pero no impedimos que una persona legítima envíe su consulta.
+     */
+    if ($handle === false) {
+        error_log(
+            'No se ha podido abrir el archivo de limitación del formulario.'
+        );
+
+        return false;
+    }
+
+    try {
+        if (!flock($handle, LOCK_EX)) {
+            error_log(
+                'No se ha podido bloquear el archivo de limitación.'
+            );
+
+            return false;
+        }
+
+        rewind($handle);
+        $storedContent = stream_get_contents($handle);
+
+        $attempts = is_string($storedContent)
+            ? json_decode($storedContent, true)
+            : [];
+
+        if (!is_array($attempts)) {
+            $attempts = [];
+        }
+
+        $currentTime = time();
+        $minimumValidTime = $currentTime - $windowSeconds;
+
+        /*
+         * Eliminamos intentos anteriores a la ventana de 15 minutos.
+         */
+        foreach ($attempts as $key => $timestamps) {
+            if (!is_array($timestamps)) {
+                unset($attempts[$key]);
+                continue;
+            }
+
+            $validTimestamps = array_values(
+                array_filter(
+                    $timestamps,
+                    static fn ($timestamp): bool =>
+                        is_int($timestamp)
+                        && $timestamp > $minimumValidTime
+                )
+            );
+
+            if ($validTimestamps === []) {
+                unset($attempts[$key]);
+            } else {
+                $attempts[$key] = $validTimestamps;
+            }
+        }
+
+        $connectionAttempts = $attempts[$connectionKey] ?? [];
+
+        if (count($connectionAttempts) >= $maximumAttempts) {
+            return true;
+        }
+
+        /*
+         * Registramos este intento antes de conectar con SMTP.
+         */
+        $connectionAttempts[] = $currentTime;
+        $attempts[$connectionKey] = $connectionAttempts;
+
+        $encodedAttempts = json_encode($attempts);
+
+        if (!is_string($encodedAttempts)) {
+            error_log(
+                'No se ha podido codificar el límite del formulario.'
+            );
+
+            return false;
+        }
+
+        rewind($handle);
+        ftruncate($handle, 0);
+        fwrite($handle, $encodedAttempts);
+        fflush($handle);
+
+        return false;
+    } finally {
+        flock($handle, LOCK_UN);
+        fclose($handle);
+    }
 }
 
 /*
@@ -264,6 +392,20 @@ $encryption = match ((string) $config['encryption']) {
 
 if ($encryption === null) {
     redirectToResult($language, 'error');
+}
+
+/*
+ * Limitación de frecuencia: máximo de tres consultas válidas
+ * cada quince minutos desde una misma conexión.
+ *
+ * El archivo se crea en la misma carpeta privada que contiene
+ * smtp-config.php, por lo que no resulta accesible desde la web.
+ */
+$rateLimitStoragePath = dirname($configPath)
+    . '/contact-rate-limit.json';
+
+if (isRateLimited($rateLimitStoragePath)) {
+    redirectToResult($language, 'rate_limit');
 }
 
 /*
