@@ -367,6 +367,45 @@ span.text-important {
     border-bottom-color: var(--color-identity);
 }
 
+.header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.contrast-toggle {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid var(--color-muted);
+    border-radius: 8px;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font: inherit;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.contrast-toggle:hover {
+    color: #ffffff;
+    border-color: var(--color-identity-action);
+    background-color: var(--color-identity-action);
+}
+
+.contrast-toggle-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
 .skip-link {
     position: fixed;
     top: 12px;
@@ -2301,7 +2340,7 @@ span.text-important {
     max-width: 100%;
     }
 
-.footer-contact-block a {
+    .footer-contact-block a {
     overflow-wrap: break-word;
     }
 
@@ -2339,5 +2378,213 @@ span.text-important {
     .back-to-top {
     right: 16px;
     bottom: 16px;
+    }
+
+}
+
+    /* =========================================================
+   19. MODE DE CONTRAST ALT
+========================================================= */
+
+/* =========================================================
+   19. MODE DE CONTRAST ALT
+   ---------------------------------------------------------
+   Variant clara amb text, controls i estats reforçats.
+========================================================= */
+
+html[data-contrast="high"] {
+    color-scheme: light;
+
+    --color-text: #000000;
+    --color-muted: #111111;
+    --color-border: #000000;
+    --color-background: #ffffff;
+    --color-background-soft: #ffffff;
+    --color-background-dark: #000000;
+    --color-accent: #004b87;
+    --color-accent-hover: #002f57;
+    --color-identity: #004b87;
+    --color-identity-action: #004b87;
+}
+
+/*
+ * Foco de dos colores:
+ * - negro junto al componente;
+ * - amarillo como anillo exterior.
+ *
+ * De esta forma continúa siendo visible sobre fondos blancos,
+ * azules, negros o sobre imágenes.
+ */
+html[data-contrast="high"] a:focus-visible,
+html[data-contrast="high"] button:focus-visible,
+html[data-contrast="high"] input:focus-visible,
+html[data-contrast="high"] textarea:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px #ffd800;
+}
+
+/* Encabezado. */
+html[data-contrast="high"] .site-header {
+    border-bottom: 2px solid #000000;
+}
+
+/* Botón que indica que el modo está activado. */
+html[data-contrast="high"] .contrast-toggle {
+    color: #ffffff;
+    border-color: #000000;
+    background-color: #004b87;
+}
+
+html[data-contrast="high"] .contrast-toggle:hover {
+    color: #000000;
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+/* Botones de llamada a la acción. */
+html[data-contrast="high"] .button,
+html[data-contrast="high"] .skip-link,
+html[data-contrast="high"] .back-to-top {
+    color: #ffffff;
+    border: 2px solid #000000;
+    background-color: #004b87;
+}
+
+html[data-contrast="high"] .button:hover {
+    color: #ffffff;
+    background-color: #002f57;
+}
+
+/* Hero de la portada: imagen conservada pero mucho más tenue. */
+html[data-contrast="high"] .hero {
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.92);
+    background-blend-mode: lighten;
+}
+
+/* Sección de servicios de la portada. */
+html[data-contrast="high"] .services-section::before {
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+html[data-contrast="high"] .service-card-link {
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    background-image: none;
+}
+
+html[data-contrast="high"] .service-card-link:hover,
+html[data-contrast="high"] .service-card-link:focus-visible {
+    color: #ffffff;
+    border-color: #004b87;
+    background-color: #004b87;
+}
+
+/*
+ * Los descendientes también heredan el blanco durante
+ * el estado hover o focus de la tarjeta.
+ */
+html[data-contrast="high"] .service-card-link:hover h3,
+html[data-contrast="high"] .service-card-link:hover li,
+html[data-contrast="high"] .service-card-link:focus-visible h3,
+html[data-contrast="high"] .service-card-link:focus-visible li {
+    color: #ffffff;
+}
+
+/* Separadores más perceptibles. */
+html[data-contrast="high"] .services-divider,
+html[data-contrast="high"] .professional-identities-divider {
+    height: 2px;
+    background-color: #004b87;
+}
+
+/* Tarjetas e islas de las páginas interiores. */
+html[data-contrast="high"] .services-island,
+html[data-contrast="high"] .contact-island,
+html[data-contrast="high"] .contact-form-card,
+html[data-contrast="high"] .form-result-card,
+html[data-contrast="high"] .legal-page-content,
+html[data-contrast="high"] .team-overview-link {
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
+
+/* Capas claras detrás de las islas y formularios. */
+html[data-contrast="high"] .contact-form-section::before,
+html[data-contrast="high"] .form-result-section::before,
+html[data-contrast="high"] .legal-page-section::before {
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+/* Selector dinámico de Servicios. */
+html[data-contrast="high"] .services-tab {
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
+
+html[data-contrast="high"] .services-tab:hover {
+    border-color: #004b87;
+}
+
+html[data-contrast="high"] .services-tab.is-active {
+    color: #ffffff;
+    border-color: #000000;
+    background-color: #004b87;
+}
+
+html[data-contrast="high"] .services-tab.is-active .services-tab-title,
+html[data-contrast="high"] .services-tab.is-active .services-tab-description {
+    color: #ffffff;
+}
+
+/* Formulario. */
+html[data-contrast="high"] .contact-form-field input,
+html[data-contrast="high"] .contact-form-field textarea {
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
+
+html[data-contrast="high"] .contact-form-privacy {
+    color: #000000;
+    border-left-color: #004b87;
+    background-color: #ffffff;
+}
+
+/* Footer corporativo reforzado. */
+html[data-contrast="high"] .site-footer {
+    color: #ffffff;
+    border-top: 2px solid #000000;
+    background-color: #004b87;
+}
+
+html[data-contrast="high"] .site-footer p,
+html[data-contrast="high"] .site-footer a,
+html[data-contrast="high"] .footer-legal-nav {
+    color: #ffffff;
+}
+
+html[data-contrast="high"] .site-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+html[data-contrast="high"] .footer-contact-divider {
+    height: 2px;
+    background-color: #ffffff;
+}
+
+/*
+ * Cuando Windows o el navegador fuerzan su propia paleta,
+ * no impedimos que sustituya nuestros colores.
+ */
+@media (forced-colors: active) {
+    .contrast-toggle {
+        border: 2px solid ButtonText;
     }
 }
