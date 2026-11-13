@@ -11,6 +11,7 @@
     <link rel="icon" href="assets/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
 
+    <script src="../js/accessibility.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -30,11 +31,17 @@
                 </ul>
             </nav>
 
-            <nav class="language-selector" aria-label="Selección de idioma">
-                <span aria-hidden="true">|</span>
-                <a href="consulta-enviada.html" lang="es" aria-current="page">ES</a>
-                <a href="../consulta-enviada.html" lang="ca">CA</a>
-            </nav>
+            <div class="header-tools">
+                <nav class="language-selector" aria-label="Selección de idioma">
+                    <a href="../consulta-enviada.html" lang="ca">CA</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="consulta-enviada.html" lang="es" aria-current="page">ES</a>
+                </nav>
+
+                <button class="contrast-toggle" type="button" aria-pressed="false" title="Activa el modo contraste para mejorar la legibilidad del contenido.">
+                    <span class="contrast-toggle-icon" aria-hidden="true">◐</span>
+                </button>
+            </div>
         </div>
     </header>
 

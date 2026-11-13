@@ -91,7 +91,7 @@
             }
     ]
 }</script>
-
+    <script src="js/accessibility.js"></script>
     <link rel="stylesheet" href="css/styles.css?v=1.1.1">
 </head>
 
@@ -115,11 +115,17 @@
                 </ul>
             </nav>
 
+        <div class="header-tools">
             <nav class="language-selector" aria-label="Selecció d'idioma">
                 <a href="/" lang="ca" aria-current="page">CA</a>
                 <span aria-hidden="true">|</span>
                 <a href="/es/" lang="es">ES</a>
             </nav>
+
+            <button class="contrast-toggle" type="button" aria-pressed="false" title="Activa el mode d'alt contrast per millorar la llegibilitat del contingut.">
+                <span class="contrast-toggle-icon" aria-hidden="true">◐</span>
+            </button>
+        </div>
 
         </div>
     </header>
@@ -245,7 +251,7 @@
             <ul>
                 <li><a href="mailto:administracio@orbitalnexusassessors.com">administracio@orbitalnexusassessors.com</a></li>
                 <li><a href="mailto:gestoria@orbitalnexus.es">gestoria@orbitalnexus.es</a></li>
-                <li><a href="mailto:gestoria@orbitalnexus.es">laboral@orbitalnexus.es</a></li>
+                <li><a href="mailto:laboral@orbitalnexus.es">laboral@orbitalnexus.es</a></li>
             </ul>
                 <div class="footer-contact-divider" aria-hidden="true"></div>
             <ul>

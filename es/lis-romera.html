@@ -37,6 +37,7 @@
     <meta name="twitter:image" content="https://orbitalnexusassessors.com/assets/og-orbital-nexus.png">
     <meta name="twitter:image:alt" content="Logotipo de Orbital Nexus Assessors i Consultors">
 
+    <script src="../js/accessibility.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -56,11 +57,17 @@
                 </ul>
             </nav>
 
-            <nav class="language-selector" aria-label="Selección de idioma">
-                <a href="../lis-romera.html" lang="ca">CA</a>
-                <span aria-hidden="true">|</span>
-                <a href="lis-romera.html" lang="es" aria-current="page">ES</a>
-            </nav>
+            <div class="header-tools">
+                <nav class="language-selector" aria-label="Selección de idioma">
+                    <a href="../lis-romera.html" lang="ca">CA</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="lis-romera.html" lang="es" aria-current="page">ES</a>
+                </nav>
+
+                <button class="contrast-toggle" type="button" aria-pressed="false" title="Activa el modo contraste para mejorar la legibilidad del contenido.">
+                    <span class="contrast-toggle-icon" aria-hidden="true">◐</span>
+                </button>
+            </div>
         </div>
     </header>
 
